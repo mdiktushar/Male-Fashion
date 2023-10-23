@@ -14,7 +14,7 @@
                             strict attention.</p>
                     </div>
                     <div class="contact__form">
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action={{route('signup')}} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">

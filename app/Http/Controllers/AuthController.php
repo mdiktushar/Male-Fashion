@@ -8,7 +8,7 @@ class AuthController extends Controller
 {
     //
     public function register (Request $request) {
-
+        dd($request);
     }
 
     public function signup (Request $request) {

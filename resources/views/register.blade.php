@@ -14,7 +14,8 @@
                             strict attention.</p>
                     </div>
                     <div class="contact__form">
-                        <form action="#">
+                        <form action="#" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12">
                                     <input name="fullname" type="text" placeholder="Full Name">
@@ -23,7 +24,7 @@
                                     <input name="email" type="email" placeholder="Email">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="photo" type="text" placeholder="Photo URL">
+                                    <input name="photo" type="file" class="form-control" placeholder="Photo URL">
                                 </div>
                                 <div class="col-lg-6">
                                     <input name="password" type="password" placeholder="Password">

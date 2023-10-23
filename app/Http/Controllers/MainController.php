@@ -26,5 +26,9 @@ class MainController extends Controller
     public function singleProduct () {
         return view('singleProduct');
     }
+
+    public function register () {
+        return view('register');
+    }
     
 }

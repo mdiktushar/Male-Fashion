@@ -108,7 +108,7 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Login</a></li>
-                            <li><a href="./contact.html">Register</a></li>
+                            <li><a href={{route('registerPage')}}>Register</a></li>
                         </ul>
                     </nav>
                 </div>

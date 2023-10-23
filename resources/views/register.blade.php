@@ -19,15 +19,27 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <input name="fullname" type="text" placeholder="Full Name">
+                                    @error('fullname')
+                                        <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="email" type="email" placeholder="Email">
+                                    <input name="email" type="text" placeholder="Email">
+                                    @error('email')
+                                        <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-12">
                                     <input name="photo" type="file" class="form-control" placeholder="Photo URL">
+                                    @error('photo')
+                                        <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6">
                                     <input name="password" type="password" placeholder="Password">
+                                    @error('password')
+                                        <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6">
                                     <input name="password_confirmation" type="password" placeholder="Conferm Password">

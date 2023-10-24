@@ -2,6 +2,11 @@
     <x-header />
     <!-- Header Component End -->
 
+    @auth
+        {{-- The data only available for auth user --}}
+        {{ auth()->user()->email }}
+    @endauth
+
     <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
@@ -14,19 +19,21 @@
                             strict attention.</p>
                     </div>
                     <div class="contact__form">
-                        <form action={{route('login')}} method="POST" enctype="multipart/form-data">
+                        <form action={{ route('login') }} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input name="email" type="text" placeholder="Email" class="@error('email') border border-danger @enderror">
+                                    <input name="email" type="text" placeholder="Email"
+                                        class="@error('email') border border-danger @enderror">
                                     @error('email')
-                                        <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="password" type="password" placeholder="Password" class="@error('password') border border-danger @enderror">
+                                    <input name="password" type="password" placeholder="Password"
+                                        class="@error('password') border border-danger @enderror">
                                     @error('password')
-                                        <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-12">

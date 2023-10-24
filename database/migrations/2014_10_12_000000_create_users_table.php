@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('picture');
             $table->boolean('is_active')->default(false);
+            $table->integer('otp')->nullable();
             $table->timestamps();
         });
     }

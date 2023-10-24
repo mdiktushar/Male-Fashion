@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class AuthController extends Controller
         // dd($request);
     }
 
-    public function login (Request $request) {
+    public function login (LoginRequest $request) {
         // dd($request);
     }
 

@@ -23,7 +23,7 @@
                                         <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <input name="password" type="password" placeholder="Password" class="@error('password') border border-danger @enderror">
                                     @error('password')
                                         <p class="text-danger">{{$message}}</p>

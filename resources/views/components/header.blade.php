@@ -35,7 +35,7 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
+                <a href={{route('loginPage')}}>Sign in</a>
                 <a href="#">FAQs</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -73,7 +73,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href={{route('loginPage')}}>Sign in</a>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
@@ -107,7 +107,7 @@
                                     <li><a href={{route('checkoutPage')}}>Check Out</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Login</a></li>
+                            <li><a href={{route('loginPage')}}>Login</a></li>
                             <li><a href={{route('registerPage')}}>Register</a></li>
                         </ul>
                     </nav>

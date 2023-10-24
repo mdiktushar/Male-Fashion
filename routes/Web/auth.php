@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/register', [MainController::class, 'register'])->name('registerPage');
+Route::get('/login', [MainController::class, 'login'])->name('loginPage');
 
 Route::post('register', [AuthController::class, 'register'])->name('signup');
+Route::post('login', [AuthController::class, 'login'])->name('login');

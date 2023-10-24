@@ -19,4 +19,3 @@ Route::get('/cart', [MainController::class, 'cart'])->name('cartPage');
 Route::get('/shop', [MainController::class, 'shop'])->name('shopPage');
 Route::get('/single', [MainController::class, 'singleProduct'])->name('singleProductPage');
 Route::get('/single', [MainController::class, 'checkout'])->name('checkoutPage');
-Route::get('/register', [MainController::class, 'register'])->name('registerPage');

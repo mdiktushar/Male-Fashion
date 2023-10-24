@@ -12,7 +12,7 @@ class AuthController extends Controller
         // dd($request);
     }
 
-    public function signup (Request $request) {
+    public function login (Request $request) {
         
     }
 

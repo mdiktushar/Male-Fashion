@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('picture');
             $table->boolean('is_active')->default(false);
             $table->integer('otp')->nullable();
+            $table->string('email_verified_code')->nullable();
             $table->timestamps();
         });
     }

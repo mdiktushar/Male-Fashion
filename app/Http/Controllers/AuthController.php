@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -12,10 +13,17 @@ class AuthController extends Controller
     //
     public function register (RegisterRequest $request) {
         // dd($request);
+
+        // photo store
+        $imageName = time().'.'.$request->photo->extension();
+        $request->photo->storeAs('public/images', $imageName);
+
         $user = User::create([
             'fullname' => $request->fullname,
             'email' => $request->email,
+            'picture' => $imageName,
             'password' => bcrypt($request->password),
+            'email_verified_code' => Str::random(40),
         ]);
         $this->userLogin($request->email, $request->password);
     }

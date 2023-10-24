@@ -14,7 +14,7 @@
                             strict attention.</p>
                     </div>
                     <div class="contact__form">
-                        <form action={{route('signup')}} method="POST" enctype="multipart/form-data">
+                        <form action={{route('login')}} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">
@@ -30,7 +30,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <button type="submit" class="site-btn">Register</button>
+                                    <button type="submit" class="site-btn">Login</button>
                                 </div>
                             </div>
                         </form>

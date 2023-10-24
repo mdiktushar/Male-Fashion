@@ -13,7 +13,7 @@ class AuthController extends Controller
     }
 
     public function login (Request $request) {
-        
+        // dd($request);
     }
 
     public function logout (Request $request) {

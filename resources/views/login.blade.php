@@ -7,6 +7,10 @@
         {{ auth()->user()->email }}
     @endauth
 
+    @if (session('error'))
+        {{session('error')}}
+    @endif
+
     <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">

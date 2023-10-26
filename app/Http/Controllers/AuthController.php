@@ -68,7 +68,7 @@ class AuthController extends Controller
                 // if user is not verified
                 // email verified code generation
                 session()->flash('error', 'Verify your email and activate your account');
-                $emailVerifiedCode = Str::random(40);
+                $emailVerifiedCode = Str::random(40).$user->id;
                 if ($user->secrets) {
                     $secret = $user->secrets;
                 } else {
@@ -77,8 +77,6 @@ class AuthController extends Controller
                 }
                 $secret->email_verified_code = $emailVerifiedCode;
                 $secret->save();
-
-
                 return false;
             }
         } else {
@@ -100,5 +98,9 @@ class AuthController extends Controller
 
     public function resetPassword(Request $request)
     {
+    }
+
+    public function emailValidation() {
+
     }
 }

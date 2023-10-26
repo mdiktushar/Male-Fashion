@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('otp')->nullable();
-            $table->string('email_verified_code')->nullable();
+            $table->string('email_verified_code')->nullable()->uniqid();
             $table->timestamps();
         });
     }

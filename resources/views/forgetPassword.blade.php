@@ -47,7 +47,7 @@
                         </form>
                         <br>
                         <div class="section-title">
-                            <a href={{route('forgetPasswordPage')}}><span>Forget Password</span></a>
+                            <a href=""><span>Forget Password</span></a>
                         </div>
                     </div>
                 </div>

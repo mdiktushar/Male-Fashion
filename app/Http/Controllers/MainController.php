@@ -31,6 +31,10 @@ class MainController extends Controller
         return view('register');
     }
 
+    public function forgetPassword () {
+        return view('forgetPassword');
+    }
+
     public function login () {
         return view('login');
     }

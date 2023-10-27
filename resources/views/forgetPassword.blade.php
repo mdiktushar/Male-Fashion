@@ -18,7 +18,7 @@
                 <div class="col-lg-6 col-md-6 mx-auto">
                     <div class="section-title">
                         <span>Welcome to our shop</span>
-                        <h2>Login To Your Account</h2>
+                        <h2>Fogrget Your Password..!!!</h2>
                         <p>As you might expect of a company that began as a high-end interiors contractor, we pay
                             strict attention.</p>
                     </div>
@@ -34,20 +34,13 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="password" type="password" placeholder="Password"
-                                        class="@error('password') border border-danger @enderror">
-                                    @error('password')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit" class="site-btn">Login</button>
+                                    <button type="submit" class="site-btn">Send Email</button>
                                 </div>
                             </div>
                         </form>
                         <br>
                         <div class="section-title">
-                            <a href=""><span>Forget Password</span></a>
+                            <a href={{'loginPage'}}><span>Go To Login Page</span></a>
                         </div>
                     </div>
                 </div>

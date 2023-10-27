@@ -63,13 +63,13 @@ class AuthController extends Controller
                     return true;
                 } else {
                     // if password is wring
-                    session()->flash('error', 'wrong password');
+                    session()->flash('message', 'wrong password');
                     return false;
                 }
             } else {
                 // if user is not verified
                 // email verified code generation
-                session()->flash('error', 'Verify your email and activate your account');
+                session()->flash('message', 'Verify your email and activate your account');
                 $emailVerifiedCode = Str::random(40).$user->id;
                 if ($user->secrets) {
                     $secret = $user->secrets;
@@ -86,7 +86,7 @@ class AuthController extends Controller
             }
         } else {
             // if user is not found
-            session()->flash('error', 'user not found.!');
+            session()->flash('message', 'user not found.!');
             return false;
         }
     }
@@ -105,7 +105,14 @@ class AuthController extends Controller
     {
     }
 
-    public function emailValidation() {
+    public function emailValidation($code) {
+        $secret = Secret::where('email_verified_code', $code)->first();
+        $user = $secret->user;
+        $user->is_active = true;
+        $user->save();
 
+        session()->flash('message', 'Email verification successfull, please login');
+        return redirect()->route('loginPage');
+        
     }
 }

@@ -7,8 +7,8 @@
         {{ auth()->user()->email }}
     @endauth
 
-    @if (session('error'))
-        {{session('error')}}
+    @if (session('message'))
+        {{session('message')}}
     @endif
 
     <!-- Contact Section Begin -->

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Mail\EmailVerification;
 use App\Models\Secret;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -77,6 +79,9 @@ class AuthController extends Controller
                 }
                 $secret->email_verified_code = $emailVerifiedCode;
                 $secret->save();
+
+                //sending the email
+                Mail::to($user->email)->send(new EmailVerification($user->fullname, $emailVerifiedCode));
                 return false;
             }
         } else {

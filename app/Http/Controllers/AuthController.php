@@ -101,6 +101,21 @@ class AuthController extends Controller
     {
     }
 
+    public function forgetPasswordEmail (Request $request) {
+
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            dd($user);
+        } else {
+            session()->flash('message', 'There is no account with this email....!');
+            return redirect()->back();
+        }
+    }
+
     public function resetPassword(Request $request)
     {
     }

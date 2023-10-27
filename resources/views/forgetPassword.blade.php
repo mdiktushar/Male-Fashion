@@ -23,7 +23,7 @@
                             strict attention.</p>
                     </div>
                     <div class="contact__form">
-                        <form action={{ route('login') }} method="POST" enctype="multipart/form-data">
+                        <form action={{ route('forgetPasswordEmail') }} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">
@@ -40,7 +40,7 @@
                         </form>
                         <br>
                         <div class="section-title">
-                            <a href={{'loginPage'}}><span>Go To Login Page</span></a>
+                            <a href={{route('loginPage')}}><span>Go To Login Page</span></a>
                         </div>
                     </div>
                 </div>

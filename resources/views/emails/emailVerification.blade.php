@@ -1,12 +1,12 @@
 <x-mail::message>
 # Introduction
+Hello {{$name}} <br>
+Please Verify your email address for the Auth system application.
 
-The body of your message.
-
-<x-mail::button :url="''">
+<x-mail::button :url="'http://127.0.0.1:8000/auth/verify-email/'.$url">
 Button Text
 </x-mail::button>
 
 Thanks,<br>
-{{ config('app.name') }}
+E-Commerce
 </x-mail::message>

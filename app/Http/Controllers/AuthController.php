@@ -116,7 +116,9 @@ class AuthController extends Controller
 
             $secret->save();
 
-            Mail::to($request->email)->send(new ForgetPassword($user->fullname, $otp, $user->id));
+            Mail::to($request->email)->send(new ForgetPassword($user->fullname, $otp));
+
+            return redirect()->route('resetPasswordPage', $user->id);
         } else {
             session()->flash('message', 'There is no account with this email....!');
             return redirect()->back();

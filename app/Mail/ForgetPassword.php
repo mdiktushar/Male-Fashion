@@ -17,12 +17,11 @@ class ForgetPassword extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $otp, $id)
+    public function __construct($name, $otp)
     {
         //
         $this->name = $name;
         $this->otp = $otp;
-        $this->id = $id;
     }
 
     /**
@@ -44,7 +43,6 @@ class ForgetPassword extends Mailable
             markdown: 'emails.forgetPassword',
             with:[
                 'otp' => $this->otp,
-                'id' => $this->id,
                 'name' => $this->name,
             ]
         );

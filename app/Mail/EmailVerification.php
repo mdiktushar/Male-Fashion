@@ -12,13 +12,16 @@ use Illuminate\Queue\SerializesModels;
 class EmailVerification extends Mailable
 {
     use Queueable, SerializesModels;
+    public $name, $emailVerifiedCode;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($fullname, $emailVerifiedCode)
     {
         //
+        $this->name = $fullname;
+        $this->emailVerifiedCode = $emailVerifiedCode;
     }
 
     /**
@@ -38,6 +41,10 @@ class EmailVerification extends Mailable
     {
         return new Content(
             markdown: 'emails.emailVerification',
+            with: [
+                'url' => $this->emailVerifiedCode,
+                'name' => $this->name,
+            ]
         );
     }
 

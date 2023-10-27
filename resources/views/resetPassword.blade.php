@@ -18,10 +18,10 @@
                         @endif
                     </div>
                     <div class="contact__form">
-                        <form action={{ route('signup') }} method="POST" enctype="multipart/form-data">
+                        <form action={{ route('resetPassword') }} method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="row">
-                                
                                 <div class="col-lg-12">
                                     <input name="email" type="text" placeholder="Email"
                                         class="@error('email') border border-danger @enderror">

@@ -71,7 +71,7 @@ class AuthController extends Controller
                 // if user is not verified
                 // email verified code generation
                 session()->flash('message', 'Verify your email and activate your account');
-                $emailVerifiedCode = Str::random(40).$user->id;
+                $emailVerifiedCode = Str::random(40) . $user->id;
                 if ($user->secrets) {
                     $secret = $user->secrets;
                 } else {
@@ -102,7 +102,8 @@ class AuthController extends Controller
     {
     }
 
-    public function forgetPasswordEmail (Request $request) {
+    public function forgetPasswordEmail(Request $request)
+    {
 
         $request->validate([
             'email' => 'required|email'
@@ -110,12 +111,12 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if ($user) {
-            $otp = rand(1000,9999);
+            $otp = rand(1000, 9999);
             $secret = $user->secrets;
             $secret->otp = $otp;
 
             $secret->save();
-            
+
             Mail::to($request->email)->send(new ForgetPassword($user->fullname, $otp));
             session()->flash('message', 'Please Check Your email for the OPT');
             return redirect()->route('resetPasswordPage');
@@ -127,9 +128,36 @@ class AuthController extends Controller
 
     public function resetPassword(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'otp' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if ($user->secrets->otp == $request->otp) {
+                $user->password = $request->password;
+                $user->save();
+
+                $secret = $user->secrets;
+                $secret->otp = null;
+                $secret->save();
+
+                session()->flash('message', 'Password is Updated');
+                return redirect()->route('loginPage');
+            } else {
+                session()->flash('message', 'OTP is not Currect');
+                return redirect()->back();
+            }
+        } else {
+            session()->flash('message', 'Email Not Found...!');
+            return redirect()->back();
+        }
     }
 
-    public function emailValidation($code) {
+    public function emailValidation($code)
+    {
         $secret = Secret::where('email_verified_code', $code)->first();
         $user = $secret->user;
         $user->is_active = true;
@@ -137,6 +165,5 @@ class AuthController extends Controller
 
         session()->flash('message', 'Email verification successfull, please login');
         return redirect()->route('loginPage');
-        
     }
 }

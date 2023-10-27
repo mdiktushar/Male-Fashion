@@ -35,8 +35,8 @@ class MainController extends Controller
         return view('forgetPassword');
     }
 
-    public function resetPassword ($id) {
-        return view('resetPassword', compact("id"));
+    public function resetPassword () {
+        return view('resetPassword');
     }
 
     public function login () {

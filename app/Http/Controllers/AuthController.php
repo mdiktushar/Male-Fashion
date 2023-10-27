@@ -112,13 +112,13 @@ class AuthController extends Controller
         if ($user) {
             $otp = rand(1000,9999);
             $secret = $user->secrets;
-            $secret->top = $otp;
+            $secret->otp = $otp;
 
             $secret->save();
-
+            
             Mail::to($request->email)->send(new ForgetPassword($user->fullname, $otp));
-
-            return redirect()->route('resetPasswordPage', $user->id);
+            session()->flash('message', 'Please Check Your email for the OPT');
+            return redirect()->route('resetPasswordPage');
         } else {
             session()->flash('message', 'There is no account with this email....!');
             return redirect()->back();

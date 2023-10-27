@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Mail\EmailVerification;
+use App\Mail\ForgetPassword;
 use App\Models\Secret;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -109,7 +110,13 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if ($user) {
-            dd($user);
+            $otp = rand(1000,9999);
+            $secret = $user->secrets;
+            $secret->top = $otp;
+
+            $secret->save();
+
+            Mail::to($request->email)->send(new ForgetPassword($user->fullname, $otp, $user->id));
         } else {
             session()->flash('message', 'There is no account with this email....!');
             return redirect()->back();

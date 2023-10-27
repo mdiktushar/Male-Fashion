@@ -7,10 +7,6 @@
         {{ auth()->user()->email }}
     @endauth
 
-    @if (session('message'))
-        {{session('message')}}
-    @endif
-
     <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
@@ -21,6 +17,10 @@
                         <h2>Login To Your Account</h2>
                         <p>As you might expect of a company that began as a high-end interiors contractor, we pay
                             strict attention.</p>
+
+                        @if (session('message'))
+                            <span>{{ session('message') }}</span>
+                        @endif
                     </div>
                     <div class="contact__form">
                         <form action={{ route('login') }} method="POST" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
                         </form>
                         <br>
                         <div class="section-title">
-                            <a href={{route('forgetPasswordPage')}}><span>Forget Password</span></a>
+                            <a href={{ route('forgetPasswordPage') }}><span>Forget Password</span></a>
                         </div>
                     </div>
                 </div>

@@ -30,6 +30,7 @@ class AuthController extends Controller
             'picture' => $imageName,
             'password' => bcrypt($request->password),
         ]);
+        
         $loginSuccess = $this->userLogin($request->email, $request->password);
         if ($loginSuccess) {
             return redirect()->route('loginPage');

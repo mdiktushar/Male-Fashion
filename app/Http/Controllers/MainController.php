@@ -8,39 +8,39 @@ class MainController extends Controller
 {
     //
     public function index () {
-        return view('index');
+        return view('pages.public.index');
     }
 
     public function cart () {
-        return view('cart');
+        return view('pages.public.cart');
     }
     
     public function checkout () {
-        return view('checkout');
+        return view('pages.public.checkout');
     }
 
     public function shop () {
-        return view('shop');
+        return view('pages.public.shop');
     }
 
     public function singleProduct () {
-        return view('singleProduct');
+        return view('pages.public.singleProduct');
     }
 
     public function register () {
-        return view('register');
+        return view('auth.register');
     }
 
     public function forgetPassword () {
-        return view('forgetPassword');
+        return view('auth.forgetPassword');
     }
 
     public function resetPassword () {
-        return view('resetPassword');
+        return view('auth.resetPassword');
     }
 
     public function login () {
-        return view('login');
+        return view('auth.login');
     }
     
 }

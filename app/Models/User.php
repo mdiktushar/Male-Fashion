@@ -50,4 +50,14 @@ class User extends Authenticatable
     public function secrets () {
         return $this->hasOne(Secret::class);
     }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -1,7 +1,6 @@
-    <!-- Header Component Begin -->
-    <x-header />
-    <!-- Header Component End -->
+@extends('layout.mainLayout')
 
+@section('content')
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
@@ -515,7 +514,4 @@
         </div>
     </section>
     <!-- Latest Blog Section End -->
-
-    <!-- Footer Component Begin -->
-    <x-footer />
-    <!-- Footer Component End -->
+@endsection

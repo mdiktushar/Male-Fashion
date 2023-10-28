@@ -1,7 +1,6 @@
-    <!-- Header Component Begin -->
-    <x-header />
-    <!-- Header Component End -->
+@extends('layout.mainLayout')
 
+@section('content')
     <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
@@ -14,35 +13,41 @@
                             strict attention.</p>
                     </div>
                     <div class="contact__form">
-                        <form action={{route('signup')}} method="POST" enctype="multipart/form-data">
+                        <form action={{ route('signup') }} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input name="fullname" type="text" placeholder="Full Name" class="@error('fullname') border border-danger @enderror">
+                                    <input name="fullname" type="text" placeholder="Full Name"
+                                        class="@error('fullname') border border-danger @enderror">
                                     @error('fullname')
-                                        <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="email" type="text" placeholder="Email" class="@error('email') border border-danger @enderror">
+                                    <input name="email" type="text" placeholder="Email"
+                                        class="@error('email') border border-danger @enderror">
                                     @error('email')
-                                        <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-12">
-                                    <input name="photo" type="file" class="form-control @error('photo') border border-danger @enderror" placeholder="Photo URL" >
+                                    <input name="photo" type="file"
+                                        class="form-control @error('photo') border border-danger @enderror"
+                                        placeholder="Photo URL">
                                     @error('photo')
-                                        <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="password" type="password" placeholder="Password" class="@error('password') border border-danger @enderror">
+                                    <input name="password" type="password" placeholder="Password"
+                                        class="@error('password') border border-danger @enderror">
                                     @error('password')
-                                        <p class="text-danger">{{$message}}</p>
+                                        <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="password_confirmation" type="password" placeholder="Conferm Password" class="@error('password') border border-danger @enderror">
+                                    <input name="password_confirmation" type="password" placeholder="Conferm Password"
+                                        class="@error('password') border border-danger @enderror">
                                 </div>
                                 <div class="col-lg-12">
                                     <button type="submit" class="site-btn">Register</button>
@@ -55,8 +60,4 @@
         </div>
     </section>
     <!-- Contact Section End -->
-
-
-    <!-- Footer Component Begin -->
-    <x-footer />
-    <!-- Footer Component End -->
+@endsection

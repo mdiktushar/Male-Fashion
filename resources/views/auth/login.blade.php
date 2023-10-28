@@ -1,12 +1,6 @@
-    <!-- Header Component Begin -->
-    <x-header />
-    <!-- Header Component End -->
+@extends('layout.mainLayout')
 
-    @auth
-        {{-- The data only available for auth user --}}
-        {{ auth()->user()->email }}
-    @endauth
-
+@section('content')
     <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
@@ -55,8 +49,4 @@
         </div>
     </section>
     <!-- Contact Section End -->
-
-
-    <!-- Footer Component Begin -->
-    <x-footer />
-    <!-- Footer Component End -->
+@endsection

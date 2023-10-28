@@ -1,7 +1,6 @@
-    <!-- Header Component Begin -->
-    <x-header />
-    <!-- Header Component End -->
+@extends('layout.mainLayout')
 
+@section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
         <div class="container">
@@ -153,7 +152,4 @@
         </div>
     </section>
     <!-- Checkout Section End -->
-
-    <!-- Footer Component Begin -->
-    <x-footer />
-    <!-- Footer Component End -->
+@endsection

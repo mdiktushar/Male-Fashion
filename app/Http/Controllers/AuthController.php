@@ -31,8 +31,9 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
         
-        $loginSuccess = $this->userLogin($request->email, $request->password);
-        if ($loginSuccess) {
+        $user = $this->userLogin($request->email, $request->password);
+        if ($user) {
+
             return redirect()->route('loginPage');
         } else {
             return redirect()->route('loginPage');
@@ -42,9 +43,13 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         // dd($request);
-        $loginSuccess = $this->userLogin($request->email, $request->password);
-        if ($loginSuccess) {
-            return redirect()->back();
+        $user = $this->userLogin($request->email, $request->password);
+        if ($user) {
+            if ($user->role == 'customer') {
+                return redirect()->route('homePage');
+            } else {
+                return redirect()->back();
+            }
         } else {
             return redirect()->back();
         }
@@ -62,7 +67,7 @@ class AuthController extends Controller
             if ($user->is_active) {
                 // check if password is correct
                 if (auth()->attempt(['email' => $email, 'password' => $password])) {
-                    return true;
+                    return $user;
                 } else {
                     // if password is wring
                     session()->flash('message', 'wrong password');

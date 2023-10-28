@@ -11,7 +11,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -35,7 +35,12 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href={{route('loginPage')}}>Sign in</a>
+                @guest
+                    <a href={{ route('loginPage') }}>Sign in</a>
+                @endguest
+                @auth
+                    <a href={{ route('logout') }}>Logout</a>
+                @endauth
                 <a href="#">FAQs</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -73,7 +78,12 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href={{route('loginPage')}}>Sign in</a>
+                                @guest
+                                    <a href={{ route('loginPage') }}>Sign in</a>
+                                @endguest
+                                @auth
+                                    <a href={{ route('logout') }}>Logout</a>
+                                @endauth
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
@@ -99,16 +109,19 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href={{route('homePage')}}>Home</a></li>
-                            <li><a href={{route('shopPage')}}>Shop</a></li>
+                            <li class="active"><a href={{ route('homePage') }}>Home</a></li>
+                            <li><a href={{ route('shopPage') }}>Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href={{route('cartPage')}}>Shopping Cart</a></li>
-                                    <li><a href={{route('checkoutPage')}}>Check Out</a></li>
+                                    <li><a href={{ route('cartPage') }}>Shopping Cart</a></li>
+                                    <li><a href={{ route('checkoutPage') }}>Check Out</a></li>
                                 </ul>
                             </li>
-                            <li><a href={{route('loginPage')}}>Login</a></li>
-                            <li><a href={{route('registerPage')}}>Register</a></li>
+                            @guest
+                                <li><a href={{ route('loginPage') }}>Login</a></li>
+                                <li><a href={{ route('registerPage') }}>Register</a></li>
+                            @endguest
+
                         </ul>
                     </nav>
                 </div>

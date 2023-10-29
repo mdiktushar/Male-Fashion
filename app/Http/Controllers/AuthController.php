@@ -19,8 +19,6 @@ class AuthController extends Controller
     //
     public function register(RegisterRequest $request)
     {
-        // dd($request);
-
 
         // photo store
         // $imageName = time() . '.'. uniqid() . $request->photo->extension();

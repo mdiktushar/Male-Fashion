@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 mx-auto">
                     <div class="section-title">
-                        <span>Welcome to our shop</span>
-                        <h2>Register Your Account</h2>
+                        <span>Welcome to E-Commerse Store Admin</span>
+                        <h2>Add Your Product</h2>
                         <p>As you might expect of a company that began as a high-end interiors contractor, we pay
                             strict attention.</p>
                     </div>

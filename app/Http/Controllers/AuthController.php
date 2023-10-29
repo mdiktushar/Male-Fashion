@@ -8,6 +8,7 @@ use App\Mail\EmailVerification;
 use App\Mail\ForgetPassword;
 use App\Models\Secret;
 use App\Models\User;
+use App\Services\ImageBBService;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,17 +21,24 @@ class AuthController extends Controller
     {
         // dd($request);
 
+
         // photo store
-        $imageName = time() . '.' . $request->photo->extension();
-        $request->photo->storeAs('public/images', $imageName);
+        // $imageName = time() . '.'. uniqid() . $request->photo->extension();
+        // $request->photo->storeAs('public/images', $imageName);
+
+        // image hosting
+        $apiKey = env('IMAGEBB_API_KEY');
+        $imageBBService = new ImageBBService($apiKey);
+        $response = $imageBBService->uploadImage($request->photo);
 
         User::create([
             'fullname' => $request->fullname,
             'email' => $request->email,
-            'picture' => $imageName,
+            // 'picture' => $imageName,
+            'picture' => $response['data']['display_url'],
             'password' => bcrypt($request->password),
         ]);
-        
+
         $user = $this->userLogin($request->email, $request->password);
         if ($user) {
 

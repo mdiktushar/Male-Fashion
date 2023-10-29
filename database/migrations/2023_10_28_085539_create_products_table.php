@@ -21,9 +21,11 @@ return new class extends Migration
             $table->string('picture');
             $table->string('description');
             $table->float('price');
-            $table->integer('quantity');
-            $table->string('category');
-            $table->float('rating');
+            $table->integer('quantity')->default(0);
+            $table->string('category')->nullable();
+            $table->float('rating')->default(0);
+            $table->integer('number_of_sales')->default(0);
+            $table->boolean('sale')->default(false);
             $table->timestamps();
         });
     }

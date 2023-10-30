@@ -11,6 +11,9 @@
                         <h2>Add Your Product</h2>
                         <p>As you might expect of a company that began as a high-end interiors contractor, we pay
                             strict attention.</p>
+                        @if (session('message'))
+                            <span>{{ session('message') }}</span>
+                        @endif
                     </div>
                     <div class="contact__form">
                         <form action={{ route('signup') }} method="POST" enctype="multipart/form-data">

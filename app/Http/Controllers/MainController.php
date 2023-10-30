@@ -28,19 +28,19 @@ class MainController extends Controller
     }
 
     public function register () {
-        return view('auth.register');
+        return view('pages.auth.register');
     }
 
     public function forgetPassword () {
-        return view('auth.forgetPassword');
+        return view('pages.auth.forgetPassword');
     }
 
     public function resetPassword () {
-        return view('auth.resetPassword');
+        return view('pages.auth.resetPassword');
     }
 
     public function login () {
-        return view('auth.login');
+        return view('pages.auth.login');
     }
     
 }

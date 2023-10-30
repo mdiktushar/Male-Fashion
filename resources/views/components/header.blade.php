@@ -122,6 +122,10 @@
                                 <li><a href={{ route('registerPage') }}>Register</a></li>
                             @endguest
 
+                            @auth
+                                <li><a href={{ route('addProductPage') }}>Add Products</a></li>
+                            @endauth
+
                         </ul>
                     </nav>
                 </div>

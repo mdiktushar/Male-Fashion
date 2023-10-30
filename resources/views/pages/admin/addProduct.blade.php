@@ -16,7 +16,7 @@
                         @endif
                     </div>
                     <div class="contact__form">
-                        <form action={{ route('signup') }} method="POST" enctype="multipart/form-data">
+                        <form action={{ route('addProduct') }} method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -70,7 +70,7 @@
 
                                 <div class="col-lg-12">
                                     <br>
-                                    <button type="submit" class="site-btn">Register</button>
+                                    <button type="submit" class="site-btn">Add Product</button>
                                 </div>
 
                             </div>

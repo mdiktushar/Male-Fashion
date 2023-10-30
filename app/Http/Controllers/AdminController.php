@@ -18,7 +18,7 @@ class AdminController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function addProductView()
     {
         //
         return view('pages.admin.addProduct');
@@ -27,9 +27,12 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AddProductRequest $request)
+    public function storeProduct(AddProductRequest $request)
     {
         //
+        dd(
+            $request
+        );
     }
 
     /**

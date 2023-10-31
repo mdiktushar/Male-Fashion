@@ -39,7 +39,8 @@ class AdminController extends Controller
 
         $data['picture'] = $response['data']['display_url'];
         auth()->user()->products()->create($data);
-        return redirect()->back();
+        session()->flash('product_added', 'Product Has Been Added');
+        return redirect()->route('homePage');
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddProductRequest;
+use App\Models\Product;
+use App\Services\ImageBBService;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -30,9 +32,14 @@ class AdminController extends Controller
     public function storeProduct(AddProductRequest $request)
     {
         //
-        dd(
-            $request
-        );
+        $data = $request->all();
+        $apiKey = env('IMAGEBB_API_KEY');
+        $imageBBService = new ImageBBService($apiKey);
+        $response = $imageBBService->uploadImage($request->picture);
+
+        $data['picture'] = $response['data']['display_url'];
+        auth()->user()->products()->create($data);
+        return redirect()->back();
     }
 
     /**

@@ -37,12 +37,13 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-lg-12">
-                                    <textarea name="description" class="form-control @error('description') border border-danger @enderror"
-                                        placeholder="Description"></textarea>
-                                    @error('description')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                                <div class="col-lg-11 mb-4">
+                                    <select name="category"
+                                        class="form-control mx-auto @error('category') border border-danger @enderror">
+                                        <option value="null" selected>Category</option>
+                                        <option value="Footwear">Footwear</option>
+                                        <option value="T-Shirt">T-Shirt</option>
+                                    </select>
                                 </div>
 
                                 <div class="col-lg-6">
@@ -61,12 +62,13 @@
                                     @enderror
                                 </div>
 
-                                <select name="category"
-                                    class="col-lg-11 form-control mx-auto @error('category') border border-danger @enderror">
-                                    <option value="null" selected>Category</option>
-                                    <option value="Footwear">Footwear</option>
-                                    <option value="T-Shirt">T-Shirt</option>
-                                </select>
+                                <div class="col-lg-12">
+                                    <textarea name="description" class="form-control @error('description') border border-danger @enderror"
+                                        placeholder="Description"></textarea>
+                                    @error('description')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
 
                                 <div class="col-lg-12">
                                     <br>

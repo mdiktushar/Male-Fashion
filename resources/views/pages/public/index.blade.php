@@ -91,9 +91,11 @@
         </div>
     </section>
     <!-- Banner Section End -->
- 
+    
+    <!-- Product Section Begin -->
     <x-products.products :products="$products"/>
-
+    <!-- Product Section End -->
+    
     <!-- Categories Section Begin -->
     <section class="categories spad">
         <div class="container">

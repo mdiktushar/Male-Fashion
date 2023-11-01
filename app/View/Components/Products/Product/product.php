@@ -8,12 +8,14 @@ use Illuminate\View\Component;
 
 class product extends Component
 {
+    public $product;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($product)
     {
         //
+        $this->product = $product;
     }
 
     /**
@@ -21,6 +23,6 @@ class product extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.product.product.product');
+        return view('components.products.product.product');
     }
 }

@@ -1,21 +1,21 @@
 <?php
 
-namespace App\View\Components\Product;
+namespace App\View\Components\Products;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class product extends Component
+class products extends Component
 {
-    public $message;
+    public $products;
     /**
      * Create a new component instance.
      */
-    public function __construct($message)
+    public function __construct($products)
     {
         //
-        $this->message = $message;
+        $this->products = $products;
     }
 
     /**
@@ -23,6 +23,6 @@ class product extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.product.product');
+        return view('components.products.products');
     }
 }

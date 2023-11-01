@@ -92,7 +92,7 @@
     </section>
     <!-- Banner Section End -->
 
-    <x-product.product :message="'tushar'"/>
+    <x-products.products :products="$products"/>
 
     <!-- Categories Section Begin -->
     <section class="categories spad">

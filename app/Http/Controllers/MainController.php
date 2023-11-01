@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     //
     public function index () {
-        return view('pages.public.index');
+        $products = Product::all();
+        return view('pages.public.index', compact('products'));
     }
 
     public function cart () {
@@ -42,5 +44,6 @@ class MainController extends Controller
     public function login () {
         return view('pages.auth.login');
     }
+
     
 }

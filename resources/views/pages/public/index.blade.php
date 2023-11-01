@@ -91,7 +91,7 @@
         </div>
     </section>
     <!-- Banner Section End -->
-
+ 
     <x-products.products :products="$products"/>
 
     <!-- Categories Section Begin -->

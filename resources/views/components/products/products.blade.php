@@ -1,5 +1,6 @@
 <!-- Product Section Begin -->
 <section class="product spad">
+    {{-- {{ $products }} --}}
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -12,7 +13,7 @@
         </div>
         <div class="row product__filter">
             @foreach ($products as $item)
-                <x-products.product.product :product="$item" />
+                <x-products.product.product :product="$item"/>
             @endforeach
         </div>
     </div>

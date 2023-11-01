@@ -1,6 +1,5 @@
 <!-- Product Section Begin -->
 <section class="product spad">
-    {{ $products }}
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

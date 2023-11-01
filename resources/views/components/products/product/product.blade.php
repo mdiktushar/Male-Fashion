@@ -1,7 +1,11 @@
-<div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+<div
+    class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix @if ($product->created_at->greaterThanOrEqualTo(now()->subDays(5))) {{ 'new-arrivals' }} @endif
+@if ($product->sale) {{ 'hot-sales' }} @endif">
     <div class="product__item">
-        <div class="product__item__pic set-bg" data-setbg={{$product->picture}}>
-            <span class="label">New</span>
+        <div class="product__item__pic set-bg" data-setbg={{ $product->picture }}>
+            @if ($product->created_at->greaterThanOrEqualTo(now()->subDays(5)))
+                <span class="label">New</span>
+            @endif
             <ul class="product__hover">
                 <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
                 <li><a href="#"><img src="img/icon/compare.png" alt="">
@@ -19,7 +23,7 @@
                 <i class="fa fa-star-o"></i>
                 <i class="fa fa-star-o"></i>
             </div>
-            <h5>$67.24</h5>
+            <h5>${{ number_format($product->price, 2) }}</h5>
             <div class="product__color__select">
                 <label for="pc-1">
                     <input type="radio" id="pc-1">

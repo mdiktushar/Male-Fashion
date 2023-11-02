@@ -22,7 +22,9 @@ class MainController extends Controller
     }
 
     public function shop () {
-        return view('pages.public.shop');
+        $products = Product::all();
+
+        return view('pages.public.shop', compact('products'));
     }
 
     public function singleProduct () {
@@ -44,6 +46,5 @@ class MainController extends Controller
     public function login () {
         return view('pages.auth.login');
     }
-
     
 }

@@ -27,6 +27,15 @@ class MainController extends Controller
         return view('pages.public.shop', compact('products'));
     }
 
+    public function shopSearch (Request $request) {
+        $request->validate([
+            'name' => 'required',
+        ]);
+        $products = Product::where('title', 'like', '%'.$request->name.'%')->get();
+
+        return view('pages.public.shop', compact('products'));
+    }
+
     public function singleProduct () {
         return view('pages.public.singleProduct');
     }

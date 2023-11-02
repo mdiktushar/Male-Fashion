@@ -207,7 +207,6 @@
                         </div>
                     </div>
                     <div class="row">
-
                         {{-- Product Component Start --}}
                         @foreach ($products as $item)
                             <x-product :product="$item" />

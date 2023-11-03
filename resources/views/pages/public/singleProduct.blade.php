@@ -110,14 +110,14 @@
                                     </label>
                                 </div>
                             </div>
-                            <form action="">
+                            <form action={{route('addToCart')}} method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="product__details__cart__option">
                                     <div class="quantity">
                                         <input class="form-control" type="number" value="1" min="1"
                                             max={{ $product->quantity }} name="quantity" id="">
                                     </div>
-                                    <input type="hidden" name="id" value={{ $product->id }}>
+                                    <input type="hidden" name="product_id" value={{ $product->id }}>
                                     <button class="primary-btn" type="submit">add to cart</a>
                                 </div>
                             </form>

@@ -21,7 +21,7 @@ class Product extends Model
     }
 
     /**
-     * Get all of the comments for the Product
+     * Get all of the comments for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

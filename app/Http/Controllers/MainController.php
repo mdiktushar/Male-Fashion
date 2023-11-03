@@ -19,6 +19,11 @@ class MainController extends Controller
         return view('pages.public.cart');
     }
 
+    public function addToCart (Request $request) {
+        auth()->user()->carts()->create($request->all());
+        return redirect()->back();
+    }
+
     public function checkout()
     {
         return view('pages.public.checkout');

@@ -12,7 +12,7 @@
     </div>
     <div class="product__item__text">
         <h6>{{ $product->title }}</h6>
-        <a href="#" class="add-cart">+ Add To Cart</a>
+        <a href={{ route('singleProductPage', $product) }} class="add-cart">+ Add To Cart</a>
         <div class="rating">
             <i class="fa fa-star-o"></i>
             <i class="fa fa-star-o"></i>

@@ -13,7 +13,11 @@
         </div>
         <div class="row product__filter">
             @foreach ($products as $item)
-                <x-products.product.product :product="$item"/>
+                <div
+                    class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix @if ($item->created_at->greaterThanOrEqualTo(now()->subDays(5))) {{ 'new-arrivals' }} @endif
+@if ($item->sale) {{ 'hot-sales' }} @endif">
+                    <x-products.product.product :product="$item" />
+                </div>
             @endforeach
         </div>
     </div>

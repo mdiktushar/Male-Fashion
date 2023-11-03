@@ -26,7 +26,7 @@
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
-                            <form action={{route('shopPageSearch') }}>
+                            <form action={{ route('shopPageSearch') }}>
                                 <input type="text" name="name" placeholder="Search...">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
@@ -209,7 +209,9 @@
                     <div class="row">
                         {{-- Product Component Start --}}
                         @foreach ($products as $item)
-                            <x-product :product="$item" />
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <x-products.product.product :product="$item" />
+                            </div>
                         @endforeach
                         {{-- Product Component End --}}
                     </div>

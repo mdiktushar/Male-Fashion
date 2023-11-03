@@ -44,6 +44,7 @@ class MainController extends Controller
     public function singleProduct(Product $product)
     {
         $products = Product::where('category', $product->category)->get();
+        // dd($product);
         return view('pages.public.singleProduct', ['product' => $product, 'products' => $products]);
     }
 

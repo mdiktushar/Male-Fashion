@@ -35,13 +35,6 @@
                                     </div>
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-4.png">
-                                        <i class="fa fa-play"></i>
-                                    </div>
-                                </a>
-                            </li> --}}
                         </ul>
                     </div>
                     <div class="col-lg-6 col-md-9">
@@ -61,13 +54,6 @@
                                     <img src={{ $product->picture }} alt="">
                                 </div>
                             </div>
-                            {{-- <div class="tab-pane" id="tabs-4" role="tabpanel">
-                                <div class="product__details__pic__item">
-                                    <img src="img/shop-details/product-big-4.png" alt="">
-                                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
-                                        class="video-popup"><i class="fa fa-play"></i></a>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -124,14 +110,18 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="product__details__cart__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                            <form action="">
+                                @csrf
+                                <div class="product__details__cart__option">
+                                    <div class="quantity">
+                                        <input class="form-control" type="number" value="1" min="1"
+                                            max={{ $product->quantity }} name="quantity" id="">
                                     </div>
+                                    <input type="hidden" name="id" value={{ $product->id }}>
+                                    <button class="primary-btn" type="submit">add to cart</a>
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
-                            </div>
+                            </form>
+
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
                                 <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>

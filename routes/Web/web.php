@@ -18,5 +18,5 @@ Route::get('/', [MainController::class, 'index'])->name('homePage');
 Route::get('/cart', [MainController::class, 'cart'])->name('cartPage');
 Route::get('/shop', [MainController::class, 'shop'])->name('shopPage');
 Route::get('/shop/search', [MainController::class, 'shopSearch'])->name('shopPageSearch');
-Route::get('/single', [MainController::class, 'singleProduct'])->name('singleProductPage');
+Route::get('/single{product}', [MainController::class, 'singleProduct'])->name('singleProductPage');
 Route::get('/checkout', [MainController::class, 'checkout'])->name('checkoutPage');

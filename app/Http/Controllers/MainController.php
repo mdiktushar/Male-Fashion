@@ -36,8 +36,8 @@ class MainController extends Controller
         return view('pages.public.shop', compact('products'));
     }
 
-    public function singleProduct () {
-        return view('pages.public.singleProduct');
+    public function singleProduct (Product $product) {
+        return view('pages.public.singleProduct', ['product' => $product]);
     }
 
     public function register () {

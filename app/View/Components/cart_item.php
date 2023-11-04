@@ -8,14 +8,14 @@ use Illuminate\View\Component;
 
 class cart_item extends Component
 {
-    public $product;
+    public $cart;
     /**
      * Create a new component instance.
      */
-    public function __construct($product)
+    public function __construct($cart)
     {
         //
-        $this->product = $product;
+        $this->cart = $cart;
     }
 
     /**

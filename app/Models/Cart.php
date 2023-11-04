@@ -27,8 +27,8 @@ class Cart extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Product()
+    public function product()
     {
-        return $this->belongsTo(Product::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(Product::class);
     }
 }

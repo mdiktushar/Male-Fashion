@@ -38,7 +38,7 @@
                             <tbody>
                                 @foreach ($carts as $item)
                                     {{-- Cart Item Start --}}
-                                    <x-cart_item :product="$item" />
+                                    <x-cart_item :cart="$item" />
                                     {{-- Cart Item End --}}
                                 @endforeach
                             </tbody>

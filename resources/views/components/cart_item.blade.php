@@ -4,17 +4,15 @@
             <img src="img/shopping-cart/cart-1.jpg" alt="">
         </div>
         <div class="product__cart__item__text">
-            <h6>T-shirt Contrast Pocket</h6>
-            <h5>$98.49</h5>
+            <h6>{{$cart->product()->first()->title}}</h6>
+            <h5>${{$cart->product()->first()->price}}</h5>
         </div>
     </td>
     <td class="quantity__item">
         <div class="quantity">
-            <div class="pro-qty-2">
-                <input type="text" value="1">
-            </div>
+                <input readonly type="text" value={{$cart->quantity}}>
         </div>
     </td>
-    <td class="cart__price">$ 30.00</td>
+    <td class="cart__price">$ {{$cart->product()->first()->price * $cart->quantity}}</td>
     <td class="cart__close"><i class="fa fa-close"></i></td>
 </tr>

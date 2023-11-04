@@ -36,9 +36,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- Cart Item Start --}}
-                                <x-cart_item />
-                                {{-- Cart Item End --}}
+                                @foreach ($carts as $item)
+                                    {{-- Cart Item Start --}}
+                                    <x-cart_item :product="$item" />
+                                    {{-- Cart Item End --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

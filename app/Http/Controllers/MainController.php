@@ -17,7 +17,8 @@ class MainController extends Controller
 
     public function cart()
     {
-        $carts = Cart::where('user_id', auth()->user()->id);
+        $carts = Cart::where('user_id', auth()->user()->id)->get();
+        // dd($carts);
         return view('pages.user.cart', compact('carts'));
     }
 

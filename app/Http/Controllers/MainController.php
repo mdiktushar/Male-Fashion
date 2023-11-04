@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class MainController extends Controller
 
     public function cart()
     {
-        return view('pages.public.cart');
+        $carts = Cart::where('user_id', auth()->user()->id);
+        return view('pages.public.cart', compact('carts'));
     }
 
     public function addToCart (Request $request) {

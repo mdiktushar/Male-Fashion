@@ -34,26 +34,32 @@ class CartController extends Controller
     public function updateCart(Request $request, Cart $cart)
     {
         $product = Product::findOrFail($cart->product_id);
-        if ($request->quantity > $cart->quantity) {
-            $removeFromProductQuantity = $request->quantity - $cart->quantity;
 
-            $product->quantity -= $removeFromProductQuantity;
-            $product->save();
-        } elseif ($request->quantity < $cart->quantity) {
-            $addToProductQuantity = $cart->quantity - $request->quantity;
-
-            $product->quantity += $addToProductQuantity;
-            $product->save();
+        if ($request->quantity + $cart->quantity > $product->quantity) {
+            session()->flash('error', 'Crossing The Limit');
+            return redirect()->back();
         } else {
-            session()->flash('success', 'Nothing to update');
+            if ($request->quantity > $cart->quantity) {
+                $removeFromProductQuantity = $request->quantity - $cart->quantity;
+
+                $product->quantity -= $removeFromProductQuantity;
+                $product->save();
+            } elseif ($request->quantity < $cart->quantity) {
+                $addToProductQuantity = $cart->quantity - $request->quantity;
+
+                $product->quantity += $addToProductQuantity;
+                $product->save();
+            } else {
+                session()->flash('success', 'Nothing to update');
+                return redirect()->back();
+            }
+
+            $cart->quantity = $request->quantity;
+            $cart->save();
+
+            session()->flash('success', 'Quantity Updated');
             return redirect()->back();
         }
-
-        $cart->quantity = $request->quantity;
-        $cart->save();
-
-        session()->flash('success', 'Quantity Updated');
-        return redirect()->back();
     }
 
     public function deleteCart(Cart $cart)

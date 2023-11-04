@@ -114,7 +114,7 @@
                                 @csrf
                                 <div class="product__details__cart__option">
                                     <div class="quantity">
-                                        <input class="form-control" type="number" value="1" min="1"
+                                        <input class="form-control" type="number" value="0" min="0"
                                             max={{ $product->quantity }} name="quantity" id="">
                                     </div>
                                     <input type="hidden" name="product_id" value={{ $product->id }}>

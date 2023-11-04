@@ -18,7 +18,11 @@ class MainController extends Controller
     public function cart()
     {
         $carts = Cart::where('user_id', auth()->user()->id)->get();
-        return view('pages.user.cart', compact('carts'));
+        $totalPrice = 0;
+        foreach($carts as $cart) {
+            $totalPrice += ($cart->product()->first()->price * $cart->quantity);
+        }
+        return view('pages.user.cart', compact('carts', 'totalPrice'));
     }
 
     public function addToCart (Request $request) {

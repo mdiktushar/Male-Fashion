@@ -68,8 +68,8 @@
                     <div class="cart__total">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ 169.50</span></li>
-                            <li>Total <span>$ 169.50</span></li>
+                            <li>Subtotal <span>$ {{$totalPrice}}</span></li>
+                            <li>Total <span>$ {{$totalPrice}}</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Proceed to checkout</a>
                     </div>

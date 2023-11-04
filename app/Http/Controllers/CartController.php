@@ -22,4 +22,9 @@ class CartController extends Controller
         auth()->user()->carts()->create($request->all());
         return redirect()->back();
     }
+
+    public function deleteCart (Cart $cart) {
+        $cart->delete();
+        return redirect()->back();
+    }
 }

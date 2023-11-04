@@ -1,7 +1,7 @@
 <tr>
     <td class="product__cart__item">
         <div class="product__cart__item__pic">
-            <img src="img/shopping-cart/cart-1.jpg" alt="">
+            <img height="80px" src={{$cart->product()->first()->picture}} alt="">
         </div>
         <div class="product__cart__item__text">
             <h6>{{$cart->product()->first()->title}}</h6>
@@ -14,5 +14,11 @@
         </div>
     </td>
     <td class="cart__price">$ {{$cart->product()->first()->price * $cart->quantity}}</td>
-    <td class="cart__close"><a href=""><i class="fa fa-close"></i></a></td>
+    <td class="cart__close">
+        <form action={{route('deleteCart', $cart)}} method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-circle"><i class="fa fa-close"></i></button>
+        </form>
+    </td>
 </tr>

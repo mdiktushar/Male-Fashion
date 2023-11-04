@@ -24,3 +24,4 @@ Route::get('/checkout', [MainController::class, 'checkout'])->name('checkoutPage
 
 Route::get('/cart', [CartController::class, 'cart'])->name('cartPage');
 Route::post('/cart', [CartController::class, 'addToCart'])->name('addToCart');
+Route::delete('/cart/{cart}', [CartController::class, 'deleteCart'])->name('deleteCart');

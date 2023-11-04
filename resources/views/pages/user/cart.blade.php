@@ -26,6 +26,11 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="shopping__cart__table">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{session('success')}}
+                            </div>
+                        @endif
                         <table>
                             <thead>
                                 <tr>

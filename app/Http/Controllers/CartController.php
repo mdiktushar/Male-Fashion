@@ -25,6 +25,7 @@ class CartController extends Controller
 
     public function deleteCart (Cart $cart) {
         $cart->delete();
+        session()->flash('success', 'Cart is successfully deleted');
         return redirect()->back();
     }
 }

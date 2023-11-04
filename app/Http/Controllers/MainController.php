@@ -18,7 +18,7 @@ class MainController extends Controller
     public function cart()
     {
         $carts = Cart::where('user_id', auth()->user()->id);
-        return view('pages.public.cart', compact('carts'));
+        return view('pages.user.cart', compact('carts'));
     }
 
     public function addToCart (Request $request) {
@@ -28,7 +28,7 @@ class MainController extends Controller
 
     public function checkout()
     {
-        return view('pages.public.checkout');
+        return view('pages.user.checkout');
     }
 
     public function shop()

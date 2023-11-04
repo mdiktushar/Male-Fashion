@@ -31,8 +31,9 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function updateCart(Request $request)
+    public function updateCart(Request $request, Cart $cart)
     {
+        dd($request->all(), $cart);
     }
 
     public function deleteCart(Cart $cart)

@@ -14,5 +14,5 @@
         </div>
     </td>
     <td class="cart__price">$ {{$cart->product()->first()->price * $cart->quantity}}</td>
-    <td class="cart__close"><i class="fa fa-close"></i></td>
+    <td class="cart__close"><a href=""><i class="fa fa-close"></i></a></td>
 </tr>

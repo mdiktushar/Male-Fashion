@@ -33,7 +33,27 @@ class CartController extends Controller
 
     public function updateCart(Request $request, Cart $cart)
     {
-        dd($request->all(), $cart);
+        $product = Product::findOrFail($cart->product_id);
+        if ($request->quantity > $cart->quantity) {
+            $removeFromProductQuantity = $request->quantity - $cart->quantity;
+
+            $product->quantity -= $removeFromProductQuantity;
+            $product->save();
+        } elseif ($request->quantity < $cart->quantity) {
+            $addToProductQuantity = $cart->quantity - $request->quantity;
+
+            $product->quantity += $addToProductQuantity;
+            $product->save();
+        } else {
+            session()->flash('success', 'Nothing to update');
+            return redirect()->back();
+        }
+
+        $cart->quantity = $request->quantity;
+        $cart->save();
+
+        session()->flash('success', 'Quantity Updated');
+        return redirect()->back();
     }
 
     public function deleteCart(Cart $cart)

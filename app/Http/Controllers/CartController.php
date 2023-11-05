@@ -21,13 +21,19 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+        $product = Product::findOrFail($request->product_id);
+
+        if ($request->quantity > $product->quantity) {
+            session()->flash('error', 'Crossing The Limit');
+            return redirect()->back();
+        }
+
         // adding to cart
         auth()->user()->carts()->create($request->all());
         //updating the product quantity.
-        $product = Product::findOrFail($request->product_id);
         $product->quantity -= $request->quantity;
         $product->save();
-
+        session()->flash('success', 'Successfully Added');
         return redirect()->back();
     }
 

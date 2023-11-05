@@ -7,6 +7,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         <div class="product__details__breadcrumb">
                             <a href={{ route('homePage') }}>Home</a>
                             <a href={{ route('shopPage') }}>Shop</a>
@@ -74,6 +84,7 @@
                                 <span> - 5 Reviews</span>
                             </div>
                             <h3>${{ $product->price }} <span>70.00</span></h3>
+                            <h4>Quantity: {{ $product->quantity }}</h4>
                             <p>{{ $product->description }}</p>
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
@@ -114,7 +125,7 @@
                                 @csrf
                                 <div class="product__details__cart__option">
                                     <div class="quantity">
-                                        <input class="form-control" type="number" value="0" min="0"
+                                        <input class="form-control" type="number" value="1" min="1"
                                             max={{ $product->quantity }} name="quantity" id="">
                                     </div>
                                     <input type="hidden" name="product_id" value={{ $product->id }}>

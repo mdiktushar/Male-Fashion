@@ -35,7 +35,7 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($cart->product_id);
 
-        if ($request->quantity + $cart->quantity > $product->quantity) {
+        if ($request->quantity > $product->quantity + $cart->quantity) {
             session()->flash('error', 'Crossing The Limit');
             return redirect()->back();
         } else {

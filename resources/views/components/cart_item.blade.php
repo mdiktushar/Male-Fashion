@@ -1,10 +1,14 @@
 <tr>
     <td class="product__cart__item">
         <div class="product__cart__item__pic">
-            <img height="80px" src={{ $cart->product()->first()->picture }} alt="">
+            <a href={{ route('singleProductPage', $cart->product()->first()) }}><img height="80px"
+                    src={{ $cart->product()->first()->picture }} alt=""></a>
+
         </div>
         <div class="product__cart__item__text">
-            <h6>{{ $cart->product()->first()->title }}</h6>
+            <a href={{ route('singleProductPage', $cart->product()->first()) }}>
+                <h6>{{ $cart->product()->first()->title }}</h6>
+            </a>
             <h5>${{ $cart->product()->first()->price }}</h5>
         </div>
     </td>
@@ -14,8 +18,7 @@
                 @csrf
                 @method('PATCH')
                 <input style="max-width: 60px;%" type="number" name="quantity" value={{ $cart->quantity }}
-                    max={{$cart->product()->first()->quantity + $cart->quantity}} min='1'
-                >
+                    max={{ $cart->product()->first()->quantity + $cart->quantity }} min='1'>
                 <button class="btn btn-success" style="font-size: 60%">Update</button>
             </form>
         </div>

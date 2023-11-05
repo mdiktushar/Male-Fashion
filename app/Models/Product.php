@@ -30,4 +30,15 @@ class Product extends Model
         return $this->hasMany(Cart::class);
     }
 
+
+    /**
+     * Get all of the comments for the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
 }

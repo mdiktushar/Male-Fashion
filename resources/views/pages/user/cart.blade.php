@@ -28,12 +28,12 @@
                     <div class="shopping__cart__table">
                         @if (session('success'))
                             <div class="alert alert-success">
-                                {{session('success')}}
+                                {{ session('success') }}
                             </div>
                         @endif
                         @if (session('error'))
                             <div class="alert alert-danger">
-                                {{session('error')}}
+                                {{ session('error') }}
                             </div>
                         @endif
                         <table>
@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn">
-                                <a href={{route('shopPage')}}>Continue Shopping</a>
+                                <a href={{ route('shopPage') }}>Continue Shopping</a>
                             </div>
                         </div>
                         {{-- <div class="col-lg-6 col-md-6 col-sm-6">
@@ -78,10 +78,27 @@
                     <div class="cart__total">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ {{$totalPrice}}</span></li>
-                            <li>Total <span>$ {{$totalPrice}}</span></li>
+                            <li>Subtotal <span>$ {{ $totalPrice }}</span></li>
+                            <li>Total <span>$ {{ $totalPrice }}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <form action="" method="POST">
+                            <input class="form-control mt-2 @error('fullname') border border-danger @enderror"
+                                type="text" name="fullname" placeholder="Full Name">
+                            @error('fullname')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <input class="form-control mt-2 @error('address') border border-danger @enderror" type="text"
+                                name="address" placeholder="Address">
+                            @error('address')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <input class="form-control mt-2 @error('phone') border border-danger @enderror" type="text"
+                                name="phone" placeholder="Phone Number">
+                            @error('phone')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            <button class="primary-btn mt-2 btn-block" type="submit">Proceed to checkout</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,12 @@ class OrderController extends Controller
 {
     //
     public function placeOrder (Request $request) {
-        
+        $input = $request->validate([
+            'fullname' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+        ]);
+
+        return redirect()->back();
     }
 }

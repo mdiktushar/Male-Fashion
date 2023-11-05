@@ -81,21 +81,22 @@
                             <li>Subtotal <span>$ {{ $totalPrice }}</span></li>
                             <li>Total <span>$ {{ $totalPrice }}</span></li>
                         </ul>
-                        <form action="" method="POST">
+                        <form action={{route('placeOrder')}} method="POST">
+                            @csrf
                             <input class="form-control mt-2 @error('fullname') border border-danger @enderror"
                                 type="text" name="fullname" placeholder="Full Name">
                             @error('fullname')
-                                <p class="text-danger">{{ $message }}</p>
+                                <p class="text-danger">{{ 'Please Enter Your Full Name' }}</p>
                             @enderror
                             <input class="form-control mt-2 @error('address') border border-danger @enderror" type="text"
                                 name="address" placeholder="Address">
                             @error('address')
-                                <p class="text-danger">{{ $message }}</p>
+                                <p class="text-danger">{{ 'Please Enter Your Address' }}</p>
                             @enderror
                             <input class="form-control mt-2 @error('phone') border border-danger @enderror" type="text"
-                                name="phone" placeholder="Phone Number">
+                                name="phone" placeholder="Contace Number">
                             @error('phone')
-                                <p class="text-danger">{{ $message }}</p>
+                                <p class="text-danger">{{ 'Please Enter Your Contace Numner' }}</p>
                             @enderror
                             <button class="primary-btn mt-2 btn-block" type="submit">Proceed to checkout</button>
                         </form>

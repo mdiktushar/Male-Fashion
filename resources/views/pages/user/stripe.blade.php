@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Laravel - Stripe Payment Gateway Integration Example - ItSolutionStuff.com</title>
+    <title>Male Fashon</title>
+    {{-- Laravel - Stripe Payment Gateway Integration Example - ItSolutionStuff.com --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -25,6 +26,12 @@
                             <div class="alert alert-success text-center">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                 <p>{{ Session::get('success') }}</p>
+                            </div>
+                        @endif
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger text-center">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <p>{{ Session::get('error') }}</p>
                             </div>
                         @endif
 

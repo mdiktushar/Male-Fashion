@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 use Stripe;
 
 class StripePaymentController extends Controller
@@ -16,7 +18,7 @@ class StripePaymentController extends Controller
     {
         return view('pages.user.stripe');
     }
-    
+
     /**
      * success response method.
      *
@@ -25,17 +27,18 @@ class StripePaymentController extends Controller
     public function stripePost(Request $request)
     {
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-    
-        Stripe\Charge::create ([
+
+        try {
+            Stripe\Charge::create([
                 "amount" => 100 * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
-                "description" => "Test payment from itsolutionstuff.com." 
-        ]);
-      
-        session()->flash('success', 'Payment successful!');
-              
+                "description" => "Test payment from itsolutionstuff.com."
+            ]);
+            session()->flash('success', 'Payment successful!');
+        } catch (Exception $e) {
+            session()->flash('error', 'Card Decline');
+        }
         return back();
     }
-
 }

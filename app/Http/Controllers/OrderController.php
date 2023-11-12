@@ -15,6 +15,9 @@ class OrderController extends Controller
             'address' => 'required',
             'phone' => 'required',
         ]);
+
+        return redirect()->route('paymentPage', $request);
+
         $user = auth()->user();
 
         $order = $user->orders()->create();

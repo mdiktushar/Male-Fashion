@@ -11,6 +11,7 @@
 <body>
 
     <div class="container">
+        {{-- {{$request->fullname}} --}}
 
         <h1 class="text-center">Send Payment</h1>
 
@@ -35,7 +36,7 @@
                             </div>
                         @endif
 
-                        <form role="form" action="{{ route('stripe.post') }}" method="post"
+                        <form role="form" action="{{ route('stripePayment') }}" method="post"
                             class="require-validation" data-cc-on-file="false"
                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                             @csrf

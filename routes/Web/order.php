@@ -19,6 +19,6 @@ Route::post('/place_Order', [OrderController::class, 'placeOrder'])->name('place
 
 
 Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('stripe', 'stripe');
-    Route::post('stripe', 'stripePost')->name('stripe.post');
+    Route::get('stripe', 'stripe')->name('paymentPage');
+    Route::post('stripe', 'stripePost')->name('stripePayment');
 });

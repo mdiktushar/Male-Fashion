@@ -19,6 +19,10 @@ return new class extends Migration
 
             $table->enum('status', ['Pending', 'Paied', 'In Process', 'On The Way', 'Delivered'])->default('Pending');
 
+            $table->string('fullname');
+            $table->string('address');
+            $table->string('phone');
+            
             $table->timestamps();
         });
     }

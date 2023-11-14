@@ -26,8 +26,15 @@ class StripePaymentController extends Controller
             return redirect()->back();
         }
 
+        $user = auth()->user();
+        $carts = $user->carts()->get();
+
+        $totalPrice = $carts->sum(function ($cart) {
+            return $cart->quantity * $cart->product->price;
+        });
+
         // Pass the data to the view
-        return view('pages.user.stripe', ['orderData' => $orderData]);
+        return view('pages.user.stripe', ['orderData' => $orderData, 'totalPrice' => $totalPrice]);
     }
 
     /**
@@ -41,15 +48,38 @@ class StripePaymentController extends Controller
 
         try {
             Stripe\Charge::create([
-                "amount" => 100 * 100,
+                "amount" =>  $request->totalPrice * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from itsolutionstuff.com."
             ]);
+
+            $user = auth()->user();
+            $carts = $user->carts()->get();
+
+            $order = $user->orders()->create([
+                'fullname' => $request->fullname,
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'status' => 'Paied',
+            ]);
+
+            $input = [];
+            foreach ($carts as $cart) {
+                $input['product_id'] = $cart->product_id;
+                $input['quantity'] = $cart->quantity;
+                $input['price'] = $cart->product()->first()->price;
+
+                $order->orderItems()->create($input);
+
+                $cart->delete();
+            }
             session()->flash('success', 'Payment successful!');
+            return redirect()->route('cartPage');
         } catch (Exception $e) {
+            dd($e);
             session()->flash('error', 'Card Decline');
+            return redirect()->route('cartPage');
         }
-        return back();
     }
 }

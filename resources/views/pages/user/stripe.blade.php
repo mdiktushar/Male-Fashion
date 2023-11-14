@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <h1 class="text-center">Send Payment</h1>
 
@@ -38,6 +37,11 @@
                             class="require-validation" data-cc-on-file="false"
                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                             @csrf
+
+                            <input type="hidden" name="totalPrice" value={{$totalPrice}}>
+                            <input type="hidden" name="fullname" value={{$orderData['fullname']}}>
+                            <input type="hidden" name="address" value={{$orderData['address']}}>
+                            <input type="hidden" name="phone" value={{$orderData['phone']}}>
 
                             <div class='form-row row'>
                                 <div class='col-xs-12 form-group required'>
@@ -81,7 +85,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now
-                                        ($100)</button>
+                                        (${{$totalPrice}})</button>
                                 </div>
                             </div>
 

@@ -23,11 +23,6 @@ return new class extends Migration
             $table->integer('quantity');
             $table->float('price');
 
-            $table->string('fullname');
-            $table->string('address');
-            $table->string('phone');
-
-
             $table->timestamps();
         });
     }

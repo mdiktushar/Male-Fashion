@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/place_Order', [OrderController::class, 'placeOrder'])->name('placeOrder');
+Route::post('/place_order', [OrderController::class, 'placeOrder'])->name('placeOrder');
 
-
-Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('stripe', 'stripe')->name('paymentPage');
-    Route::post('stripe', 'stripePost')->name('stripePayment');
-});
+Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('paymentPage');
+Route::get('stripe', [StripePaymentController::class, 'stripePost'])->name('stripePayment');

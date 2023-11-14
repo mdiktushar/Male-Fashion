@@ -14,9 +14,20 @@ class StripePaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function stripe()
+    public function stripe(Request $request)
     {
-        return view('pages.user.stripe');
+        // Retrieve flashed input data from session
+        $orderData = $request->session()->get('orderData');
+
+        // Check if the data is available
+        if (!$orderData) {
+            // Handle the case where data is not available
+            // You might want to redirect the user back to the order form or handle it accordingly
+            return redirect()->back();
+        }
+
+        // Pass the data to the view
+        return view('pages.user.stripe', ['orderData' => $orderData]);
     }
 
     /**

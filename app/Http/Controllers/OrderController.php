@@ -16,7 +16,10 @@ class OrderController extends Controller
             'phone' => 'required',
         ]);
 
-        return redirect()->route('paymentPage', $request);
+        // Flash input data to session
+        $request->session()->flash('orderData', $input);
+
+        return redirect()->route('paymentPage');
 
         $user = auth()->user();
 

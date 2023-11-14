@@ -11,8 +11,6 @@
 <body>
 
     <div class="container">
-        {{-- {{$request->fullname}} --}}
-
         <h1 class="text-center">Send Payment</h1>
 
         <div class="row">

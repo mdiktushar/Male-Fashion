@@ -178,4 +178,9 @@ class AuthController extends Controller
         session()->flash('message', 'Email verification successfull, please login');
         return redirect()->route('loginPage');
     }
+
+
+    public function myProfile () {
+        return view('pages.user.profile');
+    }
 }

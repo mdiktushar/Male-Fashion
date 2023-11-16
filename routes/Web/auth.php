@@ -26,3 +26,5 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('auth/verify-email/{code}', [AuthController::class, 'emailValidation'])->name('emailValidation');
 Route::post('forget-password', [AuthController::class, 'forgetPasswordEmail'])->name('forgetPasswordEmail');
 Route::put('reset-password', [AuthController::class, 'resetPassword'])->name('resetPassword');
+
+Route::get('my-profile', [AuthController::class, 'myProfile'])->name('profile');

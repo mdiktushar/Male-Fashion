@@ -60,6 +60,12 @@
                 </ul>
             </div>
         </div>
+        <div class="d-flex justify-content-center text-center mb-4">
+            @auth
+                <img class="rounded-circle border border-dark" width="50px" height="50px"
+                    src={{ auth()->user()->picture }} alt="">
+            @endauth
+        </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
             <a href="#"><img src="img/icon/heart.png" alt=""></a>
@@ -86,22 +92,27 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
+                                @auth
+                                    <a href={{ route('profile') }}><img class="rounded-circle border border-dark"
+                                            width="25px" height="25px" src={{ auth()->user()->picture }}
+                                            alt=""></a>
+                                @endauth
                                 @guest
                                     <a href={{ route('loginPage') }}>Sign in</a>
                                 @endguest
                                 @auth
                                     <a href={{ route('logout') }}>Logout</a>
                                 @endauth
-                                <a href="#">FAQs</a>
                             </div>
-                            <div class="header__top__hover">
+                            {{-- <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>
                                 <ul>
                                     <li>USD</li>
                                     <li>EUR</li>
                                     <li>USD</li>
                                 </ul>
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>
@@ -122,7 +133,7 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href={{ route('cartPage') }}>Shopping Cart</a></li>
-                                    <li><a href={{ route('checkoutPage') }}>Check Out</a></li>
+                                    {{-- <li><a href={{ route('checkoutPage') }}>Check Out</a></li> --}}
                                     @auth
                                         <li><a href={{ route('profile') }}>My Accoutn</a></li>
                                     @endauth

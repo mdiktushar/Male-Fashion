@@ -123,6 +123,9 @@
                                 <ul class="dropdown">
                                     <li><a href={{ route('cartPage') }}>Shopping Cart</a></li>
                                     <li><a href={{ route('checkoutPage') }}>Check Out</a></li>
+                                    @auth
+                                        <li><a href={{ route('checkoutPage') }}>My Accoutn</a></li>
+                                    @endauth
                                 </ul>
                             </li>
                             @guest

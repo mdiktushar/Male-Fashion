@@ -15,19 +15,25 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label class="text-muted">Full Name</label>
-                                    <input type="text" placeholder="{{ auth()->user()->fullname }}">
+                                    <input class="form-control @error('fullname') border border-danger @enderror" type="text" placeholder="{{ auth()->user()->fullname }}">
+                                    @error('fullname')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="text-muted">Email</label>
-                                    <input type="text" placeholder="{{ auth()->user()->email }}">
+                                    <input class="form-control @error('email') border border-danger @enderror" type="text" placeholder="{{ auth()->user()->email }}">
+                                    @error('email')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="col-lg-12">
                                     <label class="text-muted">Photo</label>
                                     <input name="photo" type="file"
-                                        class="form-control @error('photo') border border-danger @enderror"
+                                        class="form-control @error('picture') border border-danger @enderror"
                                         placeholder="Photo URL">
-                                    @error('photo')
+                                    @error('picture')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

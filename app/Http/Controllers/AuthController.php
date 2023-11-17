@@ -186,6 +186,10 @@ class AuthController extends Controller
 
 
     public function updateProfile (Request $request) {
+        $input = $request->validate([
+            'email' => 'email|unique:Users',
+            'photo' => 'image|mimes:jpeg,png,jpg',
+        ]);
         dd($request->all());
     }
 }

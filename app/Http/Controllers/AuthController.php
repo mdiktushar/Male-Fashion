@@ -183,4 +183,9 @@ class AuthController extends Controller
     public function myProfile () {
         return view('pages.user.profile');
     }
+
+
+    public function updateProfile () {
+        
+    }
 }

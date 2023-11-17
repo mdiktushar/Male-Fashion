@@ -21,4 +21,10 @@ class OrderController extends Controller
 
         return redirect()->route('paymentPage');
     }
+
+    public function OrderIndex () {
+        $orders = auth()->user()->orders()->get();
+        dd($orders);
+        return view('pages.user.orders');
+    }
 }

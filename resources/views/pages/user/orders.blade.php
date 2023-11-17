@@ -25,7 +25,7 @@
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="shopping__cart__table">
                         @if (session('success'))
                             <div class="alert alert-success">
@@ -40,16 +40,19 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Product ID</th>
+                                    <th>Full Name</th>
+                                    <th>Address</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($carts as $item)
+                                @foreach ($orders as $item)
                                     {{-- Cart Item Start --}}
-                                    <x-cart_item :cart="$item" />
+                                    {{-- <x-cart_item :cart="$item" /> --}}
                                     {{-- Cart Item End --}}
                                 @endforeach
                             </tbody>
@@ -62,10 +65,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    
-
                 </div>
             </div>
         </div>

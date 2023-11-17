@@ -28,3 +28,4 @@ Route::post('forget-password', [AuthController::class, 'forgetPasswordEmail'])->
 Route::put('reset-password', [AuthController::class, 'resetPassword'])->name('resetPassword');
 
 Route::get('my-profile', [AuthController::class, 'myProfile'])->name('profile');
+Route::patch('update-profile', [AuthController::class, 'updateProfile'])->name('updateProfile');

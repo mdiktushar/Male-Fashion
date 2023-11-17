@@ -9,6 +9,7 @@ use App\Mail\ForgetPassword;
 use App\Models\Secret;
 use App\Models\User;
 use App\Services\ImageBBService;
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -180,16 +181,32 @@ class AuthController extends Controller
     }
 
 
-    public function myProfile () {
+    public function myProfile()
+    {
         return view('pages.user.profile');
     }
 
 
-    public function updateProfile (Request $request) {
-        $input = $request->validate([
-            'email' => 'email|unique:Users',
-            'photo' => 'image|mimes:jpeg,png,jpg',
-        ]);
-        dd($request->all());
+    public function updateProfile(Request $request)
+    {
+
+        if ($request->fullname) {
+            $input = $request->validate([
+                'fullname' => 'string|min:2|max:255',
+            ]);
+        }
+
+        if ($request->email) {
+            $input = $request->validate([
+                'email' => 'email|unique:Users',
+            ]);
+        }
+
+        try{
+            auth()->user()->update($input);
+        } catch(Exception $e) {
+            return redirect()->back()->with('error', 'Nothing to Update');
+        }
+        return redirect()->back()->with('success', 'Profile updated successfully!');
     }
 }

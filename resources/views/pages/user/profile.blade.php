@@ -11,18 +11,20 @@
                             alt="">
                     </div>
                     <div class="contact__form">
-                        <form action="#">
+                        <form action={{route('updateProfile')}} method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label class="text-muted">Full Name</label>
-                                    <input class="form-control @error('fullname') border border-danger @enderror" type="text" placeholder="{{ auth()->user()->fullname }}">
+                                    <input name="fullname" class="form-control @error('fullname') border border-danger @enderror" type="text" placeholder="{{ auth()->user()->fullname }}">
                                     @error('fullname')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="text-muted">Email</label>
-                                    <input class="form-control @error('email') border border-danger @enderror" type="text" placeholder="{{ auth()->user()->email }}">
+                                    <input name="email" class="form-control @error('email') border border-danger @enderror" type="text" placeholder="{{ auth()->user()->email }}">
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror

@@ -185,7 +185,7 @@ class AuthController extends Controller
     }
 
 
-    public function updateProfile () {
-        
+    public function updateProfile (Request $request) {
+        dd($request->all());
     }
 }

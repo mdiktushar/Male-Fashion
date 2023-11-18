@@ -24,7 +24,6 @@ class OrderController extends Controller
 
     public function OrderIndex () {
         $orders = auth()->user()->orders()->get();
-        dd($orders);
-        return view('pages.user.orders');
+        return view('pages.user.orders', compact('orders'));
     }
 }

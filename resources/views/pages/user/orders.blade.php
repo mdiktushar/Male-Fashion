@@ -40,9 +40,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product ID</th>
+                                    <th>Order ID</th>
                                     <th>Full Name</th>
                                     <th>Address</th>
+                                    <th>Phone</th>
                                     <th>Total Price</th>
                                     <th>Status</th>
                                     <th>Details</th>
@@ -50,20 +51,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($orders as $item)
+                                @foreach ($orders->reverse() as $item)
                                     {{-- Cart Item Start --}}
                                     <x-order :order="$item" />
                                     {{-- Cart Item End --}}
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="continue__btn">
-                                <a href={{ route('shopPage') }}>Continue Shopping</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

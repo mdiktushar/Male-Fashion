@@ -19,6 +19,12 @@
 
     <td class="product__cart__item">
         <div class="product__cart__item__text">
+            <h6>{{$order->phone}}</h6>
+        </div>
+    </td>
+
+    <td class="product__cart__item">
+        <div class="product__cart__item__text">
             <h6>{{$order->totalPrice()}}</h6>
         </div>
     </td>

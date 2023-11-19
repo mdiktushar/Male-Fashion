@@ -13,8 +13,8 @@
                             <span>Shopping Cart</span>
                         </div>
                         <br>
-                        <h5>Order id: {{$orderitems[0]->order->id}}</h5>
-                        <h5>Name: {{$orderitems[0]->order->fullname}}</h5>
+                        <h6><strong>Order id: {{$orderitems[0]->order->id}}</strong></h6>
+                        <h6><strong>Name: {{$orderitems[0]->order->fullname}}</strong></h6>
                         <h6>Phone: {{$orderitems[0]->order->phone}}</h6>
                         <p>Address: {{$orderitems[0]->order->address}}</p>
                     </div>

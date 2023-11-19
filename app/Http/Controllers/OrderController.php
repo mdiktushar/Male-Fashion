@@ -29,7 +29,9 @@ class OrderController extends Controller
 
     public function ordersDetails (Order $order) {
         $orderitems = $order->orderItems()->get();
-        // dd($orderitems);
+        if ($order->user->id != auth()->user()->id) {
+            return redirect()->back();
+        }
         return view('pages.user.orderDetails', compact('orderitems'));
     }
 }

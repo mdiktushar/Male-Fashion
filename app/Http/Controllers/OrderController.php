@@ -28,6 +28,8 @@ class OrderController extends Controller
     }
 
     public function ordersDetails (Order $order) {
-        return view('pages.user.orderDetails', compact('order'));
+        $orderitems = $order->orderItems()->get();
+        // dd($orderitems);
+        return view('pages.user.orderDetails', compact('orderitems'));
     }
 }

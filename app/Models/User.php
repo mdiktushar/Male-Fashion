@@ -71,7 +71,6 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
-
     /**
      * Get all of the comments for the User
      *
@@ -80,5 +79,12 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function cartTotal()
+    {
+        return $this->carts()->get()->sum(function ($cart) {
+            return $cart->quantity * $cart->product->price;
+        });
     }
 }

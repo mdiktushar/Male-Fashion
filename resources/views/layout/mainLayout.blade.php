@@ -1,10 +1,10 @@
     <!-- Header Component Begin -->
-    <x-header />
+    <x-shared.header.header />
     <!-- Header Component End -->
 
     @yield('content')
 
 
     <!-- Footer Component Begin -->
-    <x-footer />
+    <x-shared.footer.footer />
     <!-- Footer Component End -->

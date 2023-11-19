@@ -52,7 +52,7 @@
                             <tbody>
                                 @foreach ($orderitems as $item)
                                 {{-- Cart Item Start --}}
-                                <x-cart_item :cart="$item" />
+                                <x-order_item :item="$item" />
                                 {{-- Cart Item End --}}
                             @endforeach
                             </tbody>

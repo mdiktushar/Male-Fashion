@@ -41,7 +41,7 @@
                                 <tr>
                                     <th>Product</th>
                                     <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Price</th>
                                     <th></th>
                                 </tr>
                             </thead>

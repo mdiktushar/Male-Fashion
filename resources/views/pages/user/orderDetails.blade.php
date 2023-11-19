@@ -44,22 +44,17 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Order ID</th>
-                                    <th>Full Name</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Total Price</th>
-                                    <th>Status</th>
-                                    <th>Details</th>
-                                    <th></th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($orders->reverse() as $item) --}}
-                                    {{-- Cart Item Start --}}
-                                    {{-- <x-order :order="$item" /> --}}
-                                    {{-- Cart Item End --}}
-                                {{-- @endforeach --}}
+                                @foreach ($orderitems as $item)
+                                {{-- Cart Item Start --}}
+                                <x-cart_item :cart="$item" />
+                                {{-- Cart Item End --}}
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

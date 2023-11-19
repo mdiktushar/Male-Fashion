@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Order extends Model
 {
@@ -33,5 +34,9 @@ class Order extends Model
 
     public function totalPrice() {
         return $this->orderItems()->sum('price');
+    }
+
+    public function totalPriceWithQuantity () {
+        return $this->orderItems()->sum(DB::raw('price * quantity'));
     }
 }

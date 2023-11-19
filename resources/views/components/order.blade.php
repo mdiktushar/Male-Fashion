@@ -25,7 +25,7 @@
 
     <td class="product__cart__item">
         <div class="product__cart__item__text">
-            <h6>{{ $order->totalPrice() }}</h6>
+            <h6>{{ $order->totalPriceWithQuantity() }}</h6>
         </div>
     </td>
 

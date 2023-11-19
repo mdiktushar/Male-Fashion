@@ -16,6 +16,7 @@
                         <h6><strong>Order id: {{$orderitems[0]->order->id}}</strong></h6>
                         <h6><strong>Name: {{$orderitems[0]->order->fullname}}</strong></h6>
                         <h6>Phone: {{$orderitems[0]->order->phone}}</h6>
+                        <h6>Total Price: <strong>${{$orderitems[0]->order->totalPriceWithQuantity()}}</strong></h6>
                         <p>Address: {{$orderitems[0]->order->address}}</p>
                     </div>
                 </div>

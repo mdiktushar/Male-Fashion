@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -25,5 +25,9 @@ class OrderController extends Controller
     public function OrderIndex () {
         $orders = auth()->user()->orders()->get();
         return view('pages.user.orders', compact('orders'));
+    }
+
+    public function ordersDetails (Order $order) {
+        return view('pages.user.orderDetails', compact('order'));
     }
 }

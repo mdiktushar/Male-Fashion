@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('orders', [OrderController::class, 'placeOrder'])->name('placeOrder');
 
 Route::get('orders', [OrderController::class, 'OrderIndex'])->name('orders');
+Route::get('orders/{order}', [OrderController::class, 'ordersDetails'])->name('ordersDetails');
 
 
 Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('paymentPage');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->enum('status', ['Pending', 'Paied', 'In Process', 'On The Way', 'Delivered'])->default('Pending');
+            $table->enum('status', ['Pending', 'Paid', 'In Process', 'On The Way', 'Delivered'])->default('Pending');
 
             $table->string('fullname');
             $table->string('address');

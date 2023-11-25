@@ -129,7 +129,9 @@
                             @endguest
 
                             @auth
-                                <li><a href={{ route('addProductPage') }}>Add Products</a></li>
+                                @if (auth()->user()->role == 'admin')
+                                    <li><a href={{ route('addProductPage') }}>Add Products</a></li>
+                                @endif
                             @endauth
 
                         </ul>

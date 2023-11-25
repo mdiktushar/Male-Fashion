@@ -19,10 +19,12 @@ Route::get('/', [MainController::class, 'index'])->name('homePage');
 Route::get('/shop', [MainController::class, 'shop'])->name('shopPage');
 Route::get('/shop/search', [MainController::class, 'shopSearch'])->name('shopPageSearch');
 Route::get('/single{product}', [MainController::class, 'singleProduct'])->name('singleProductPage');
-Route::get('/checkout', [MainController::class, 'checkout'])->name('checkoutPage');
 
+// Route::get('/checkout', [MainController::class, 'checkout'])->name('checkoutPage');
 
-Route::get('/cart', [CartController::class, 'cart'])->name('cartPage');
-Route::post('/cart', [CartController::class, 'addToCart'])->name('addToCart');
-Route::patch('/cart/{cart}', [CartController::class, 'updateCart'])->name('updateCart');
-Route::delete('/cart/{cart}', [CartController::class, 'deleteCart'])->name('deleteCart');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', [CartController::class, 'cart'])->name('cartPage');
+    Route::post('/cart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::patch('/cart/{cart}', [CartController::class, 'updateCart'])->name('updateCart');
+    Route::delete('/cart/{cart}', [CartController::class, 'deleteCart'])->name('deleteCart');
+});

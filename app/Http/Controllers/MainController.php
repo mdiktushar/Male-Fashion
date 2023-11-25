@@ -15,6 +15,11 @@ class MainController extends Controller
         return view('pages.public.index', compact('products'));
     }
 
+    public function indexRediredt()
+    {
+       return redirect()->route('homePage');
+    }
+
     public function checkout()
     {
         return view('pages.user.checkout');

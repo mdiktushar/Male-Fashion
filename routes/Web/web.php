@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class, 'index'])->name('homePage');
+Route::get('/', [MainController::class, 'indexRediredt']);
+Route::get('/home', [MainController::class, 'index'])->name('homePage');
 Route::get('/shop', [MainController::class, 'shop'])->name('shopPage');
 Route::get('/shop/search', [MainController::class, 'shopSearch'])->name('shopPageSearch');
 Route::get('/single{product}', [MainController::class, 'singleProduct'])->name('singleProductPage');

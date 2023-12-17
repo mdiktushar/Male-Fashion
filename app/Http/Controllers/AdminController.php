@@ -14,7 +14,16 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('pages.admin.dashboard.index');
+        return view('pages.admin.dashboard');
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function adminProduct()
+    {
+        //
+        return view('pages.admin.products');
     }
 
     /**

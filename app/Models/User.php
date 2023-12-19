@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'picture',
+        'picture_delete_url',
         'is_active',
         'email_verified_code',
         'otp',

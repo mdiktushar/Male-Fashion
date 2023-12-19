@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('picture');
+            $table->string('picture_delete_url');
             $table->string('description');
             $table->float('price');
             $table->integer('quantity')->default(0);

@@ -29,12 +29,13 @@ class AuthController extends Controller
         $apiKey = env('IMAGEBB_API_KEY');
         $imageBBService = new ImageBBService($apiKey);
         $response = $imageBBService->uploadImage($request->photo);
-
+        // dd($response);
         User::create([
             'fullname' => $request->fullname,
             'email' => $request->email,
             // 'picture' => $imageName,
             'picture' => $response['data']['display_url'],
+            'picture_delete_url' => $response['data']['delete_url'],
             'password' => bcrypt($request->password),
         ]);
 
@@ -176,7 +177,7 @@ class AuthController extends Controller
         $user->is_active = true;
         $user->save();
 
-        session()->flash('message', 'Email verification successfull, please login');
+        session()->flash('success', 'Email verification successfull, please login');
         return redirect()->route('loginPage');
     }
 

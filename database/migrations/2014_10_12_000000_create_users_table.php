@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('picture');
+            $table->string('picture_delete_url');
             $table->string('role')->default('customer');
             $table->boolean('is_active')->default(false);
             $table->timestamps();

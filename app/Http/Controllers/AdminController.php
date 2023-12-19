@@ -49,7 +49,11 @@ class AdminController extends Controller
         $imageBBService = new ImageBBService($apiKey);
         $response = $imageBBService->uploadImage($request->picture);
 
+        // dd($response);
+
         $data['picture'] = $response['data']['display_url'];
+        $data['picture_delete_url'] = $response['data']['delete_url'];
+
         auth()->user()->products()->create($data);
         session()->flash('product_added', 'Product Has Been Added');
         return redirect()->route('adminProductPage');

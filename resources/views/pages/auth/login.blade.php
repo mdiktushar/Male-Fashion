@@ -15,6 +15,9 @@
                         @if (session('message'))
                             <span>{{ session('message') }}</span>
                         @endif
+                        @if (session('success'))
+                            <span class="text-success">{{ session('success') }}</span>
+                        @endif
                     </div>
                     <div class="contact__form">
                         <form action={{ route('login') }} method="POST" enctype="multipart/form-data">

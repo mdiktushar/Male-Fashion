@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddProductRequest;
+use App\Models\Product;
 use App\Services\ImageBBService;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,9 @@ class AdminController extends Controller
     public function adminProduct()
     {
         //
-        return view('pages.admin.products');
+        $products = Product::all();
+        // dd($products);
+        return view('pages.admin.products', compact('products'));
     }
 
     /**

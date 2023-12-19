@@ -52,7 +52,7 @@ class AdminController extends Controller
         $data['picture'] = $response['data']['display_url'];
         auth()->user()->products()->create($data);
         session()->flash('product_added', 'Product Has Been Added');
-        return redirect()->route('homePage');
+        return redirect()->route('adminProductPage');
     }
 
     /**

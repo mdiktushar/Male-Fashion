@@ -114,25 +114,24 @@
                         <ul>
                             <li class="active"><a href={{ route('homePage') }}>Home</a></li>
                             <li><a href={{ route('shopPage') }}>Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            {{-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href={{ route('cartPage') }}>Shopping Cart</a></li>
-                                    {{-- <li><a href={{ route('checkoutPage') }}>Check Out</a></li> --}}
                                     @auth
                                         <li><a href={{ route('profile') }}>My Accoutn</a></li>
                                     @endauth
                                 </ul>
-                            </li>
+                            </li> --}}
                             @guest
                                 <li><a href={{ route('loginPage') }}>Login</a></li>
                                 <li><a href={{ route('registerPage') }}>Register</a></li>
                             @endguest
 
-                            @auth
+                            {{-- @auth
                                 @if (auth()->user()->role == 'admin')
                                     <li><a href={{ route('addProductPage') }}>Add Products</a></li>
                                 @endif
-                            @endauth
+                            @endauth --}}
 
                         </ul>
                     </nav>

@@ -6,6 +6,7 @@ use App\Http\Requests\AddProductRequest;
 use App\Models\Product;
 use App\Services\ImageBBService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -15,6 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         //
+        $this->authorize('viewDashboard', Auth::user());
         return view('pages.admin.dashboard');
     }
 

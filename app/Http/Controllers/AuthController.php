@@ -53,10 +53,11 @@ class AuthController extends Controller
         // dd($request);
         $user = $this->userLogin($request->email, $request->password);
         if ($user) {
-            if ($user->role == 'customer') {
-                return redirect()->route('homePage');
+            if ($user->role == 'admin') {
+                return redirect()->route('index');
+                
             } else {
-                return redirect()->back();
+                return redirect()->route('homePage');
             }
         } else {
             return redirect()->back();

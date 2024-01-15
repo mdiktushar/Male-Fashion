@@ -11,7 +11,7 @@ class MainController extends Controller
     //
     public function index()
     {
-        $products = Product::all();
+        $products = Product::all()->take(8);
         return view('pages.public.index', compact('products'));
     }
 

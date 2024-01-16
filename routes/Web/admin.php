@@ -23,3 +23,4 @@ Route::get('admin/create', [AdminController::class, 'addProductView'])->name('ad
 Route::post('admin/create', [AdminController::class, 'storeProduct'])->name('addProduct');
 Route::patch('admin/{product}', [AdminController::class, 'editProduct'])->name('editProduct');
 Route::delete('admin/{product}', [AdminController::class, 'deleteProduct'])->name('deleteProduct');
+

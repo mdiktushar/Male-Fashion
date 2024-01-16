@@ -19,6 +19,8 @@
                                     <th>Sale</th>
                                     <th>Category</th>
                                     <th>Sales</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,6 +43,12 @@
                                         </td>
                                         <td class="font-weight-medium">
                                             <div class="badge badge-secondary">{{ $item->sale }}</div>
+                                        </td>
+                                        <td>
+                                            <Button class="btn btn-dark">Edit</Button>
+                                        </td>
+                                        <td>
+                                            <Button class="btn btn-danger">Delete</Button>
                                         </td>
                                     </tr>
                                 @endforeach

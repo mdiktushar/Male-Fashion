@@ -45,10 +45,17 @@
                                             <div class="badge badge-secondary">{{ $item->sale }}</div>
                                         </td>
                                         <td>
-                                            <a href={{route('editProductPage', $item->id)}} class="btn btn-success">Edit</a>
+                                            <a href={{ route('editProductPage', $item->id) }}
+                                                class="btn btn-success">Edit</a>
                                         </td>
                                         <td>
-                                            <a href={{route('deleteProduct', $item->id)}} class="btn btn-danger">Delete</a>
+                                            <form action="{{ route('deleteProduct', $item->id) }}"
+                                                method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

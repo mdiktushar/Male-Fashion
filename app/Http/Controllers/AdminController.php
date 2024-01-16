@@ -75,7 +75,7 @@ class AdminController extends Controller
     public function editProductView(Product $product)
     {
         //
-        dd("UpdatePage", $product);
+        return view('pages.admin.editProduct', compact('product'));
     }
 
     /**

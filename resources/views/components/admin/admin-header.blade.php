@@ -110,10 +110,12 @@
                                 <i class="ti-settings text-primary"></i>
                                 Settings
                             </a>
-                            <a class="dropdown-item">
-                                <i class="ti-power-off text-primary"></i>
-                                Logout
-                            </a>
+                            @auth
+                                <a href={{ route('logout') }} class="dropdown-item">
+                                    <i class="ti-power-off text-primary"></i>
+                                    Logout
+                                </a>
+                            @endauth
                         </div>
                     </li>
                     <li class="nav-item nav-settings d-none d-lg-flex">
@@ -338,7 +340,7 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href={{route('adminProductPage')}}>View All</a>
+                                    <a class="nav-link" href={{ route('adminProductPage') }}>View All</a>
                                 </li>
                             </ul>
                         </div>

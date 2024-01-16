@@ -45,10 +45,10 @@
                                             <div class="badge badge-secondary">{{ $item->sale }}</div>
                                         </td>
                                         <td>
-                                            <Button class="btn btn-dark">Edit</Button>
+                                            <a class="btn btn-success">Edit</a>
                                         </td>
                                         <td>
-                                            <Button class="btn btn-danger">Delete</Button>
+                                            <a class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

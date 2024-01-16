@@ -80,7 +80,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function editProduct(Product $product, Request $request)
     {
         //
     }
@@ -88,7 +88,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function deleteProduct(Product $product)
     {
         //
     }

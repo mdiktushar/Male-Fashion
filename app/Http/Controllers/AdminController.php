@@ -72,15 +72,16 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editProductView(Product $product)
     {
         //
+        dd("UpdatePage", $product);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function editProduct(Product $product, Request $request)
+    public function updateProduct(Product $product, Request $request)
     {
         //
     }
@@ -91,5 +92,6 @@ class AdminController extends Controller
     public function deleteProduct(Product $product)
     {
         //
+        dd('delete', $product);
     }
 }

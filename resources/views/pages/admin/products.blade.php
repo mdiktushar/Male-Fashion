@@ -45,10 +45,10 @@
                                             <div class="badge badge-secondary">{{ $item->sale }}</div>
                                         </td>
                                         <td>
-                                            <a class="btn btn-success">Edit</a>
+                                            <a href={{route('editProductPage', $item->id)}} class="btn btn-success">Edit</a>
                                         </td>
                                         <td>
-                                            <a class="btn btn-danger">Delete</a>
+                                            <a href={{route('deleteProduct', $item->id)}} class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

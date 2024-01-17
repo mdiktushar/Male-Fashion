@@ -52,8 +52,6 @@ class AdminController extends Controller
         $imageBBService = new ImageBBService($apiKey);
         $response = $imageBBService->uploadImage($request->picture);
 
-        // dd($response);
-
         $data['picture'] = $response['data']['display_url'];
         $data['picture_delete_url'] = $response['data']['delete_url'];
 
@@ -85,7 +83,25 @@ class AdminController extends Controller
     public function updateProduct(Product $product, UpdateProductRequest $request)
     {
         //
-        dd($request);
+        // Check if the request has a file for the 'picture' field
+        $data = $request->all();
+        if ($request->hasFile('picture')) {
+            $apiKey = env('IMAGEBB_API_KEY');
+            $imageBBService = new ImageBBService($apiKey);
+            $response = $imageBBService->uploadImage($request->picture);
+
+            $data['picture'] = $response['data']['display_url'];
+            $data['picture_delete_url'] = $response['data']['delete_url'];
+        }
+
+        // Apply patch operation or other updates as needed
+        $product->update($data);
+
+        // Additional logic or redirection as needed
+        // ...
+
+        // Optionally, you can return a response or redirect
+        return redirect()->route('adminProductPage')->with('success', 'Product updated successfully');
     }
 
     /**

@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class ImageBBService
 {
-    protected $apiUrl = 'https://api.imgbb.com/1/upload';
+    protected $apiUrl = 'https://api.imgbb.com/1/';
     protected $apiKey;
     protected $client;
 
@@ -18,7 +18,7 @@ class ImageBBService
 
     public function uploadImage($imagePath)
     {
-        $response = $this->client->post($this->apiUrl, [
+        $response = $this->client->post($this->apiUrl . 'upload', [
             'multipart' => [
                 [
                     'name' => 'key',
@@ -38,7 +38,7 @@ class ImageBBService
     public function deleteImage($deleteHash)
     {
 
-        $response = $this->client->delete($this->apiUrl . '/delete/' . $deleteHash, [
+        $response = $this->client->delete($this->apiUrl . 'delete/' . $deleteHash, [
             'query' => [
                 'key' => $this->apiKey,
             ],

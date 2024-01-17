@@ -13,19 +13,21 @@
                 @endif
             </div>
             <div class="contact__form">
-                <form action={{ route('addProduct') }} method="POST" enctype="multipart/form-data" class="form-group">
+                <form action={{ route('updateProduct', $product) }} method="POST" enctype="multipart/form-data"
+                    class="form-group">
                     @csrf
+                    @method('patch')
                     <div class="row">
                         <div class="col-lg-12 mb-4">
-                            <input class="form-control" name="title" type="text" placeholder="Product Name"
-                                class="@error('title') border border-danger @enderror">
+                            <input class="form-control" name="title" value={{ $product->title }} type="text"
+                                placeholder="Product Name" class="@error('title') border border-danger @enderror">
                             @error('title')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="col-lg-12 mb-4">
-                            <img src={{$product->image}} alt="">
+                            <img class="rounded" src={{ $product->picture }} width="100px" alt={{ $product->title }}>
                         </div>
 
                         <div class="col-lg-12 mb-4">
@@ -40,26 +42,35 @@
                         <div class="col-lg-12 mb-4">
                             <select name="category"
                                 class="form-control mx-auto @error('category') border border-danger @enderror">
-                                <option value="null" selected>Category</option>
-                                <option value="Footwear">Footwear</option>
-                                <option value="Huddy">Huddy</option>
-                                <option value="T-Shirt">T-Shirt</option>
-                                <option value="Bag">Bag</option>
-                                <option value="Shirt">Shirt</option>
+                                <option value="Footwear" {{ $product->category == 'Footwear' ? 'selected' : '' }}>Footwear
+                                </option>
+                                <option value="Huddy" {{ $product->category == 'Huddy' ? 'selected' : '' }}>Huddy</option>
+                                <option value="T-Shirt" {{ $product->category == 'T-Shirt' ? 'selected' : '' }}>T-Shirt
+                                </option>
+                                <option value="Bag" {{ $product->category == 'Bag' ? 'selected' : '' }}>Bag</option>
+                                <option value="Shirt" {{ $product->category == 'Shirt' ? 'selected' : '' }}>Shirt</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-12 mb-4">
+                            <select name="sale"
+                                class="form-control mx-auto @error('sale') border border-danger @enderror">
+                                <option value="1" {{ $product->sale == '1' ? 'selected' : '' }}>In Sale</option>
+                                <option value="0" {{ $product->sale == '0' ? 'selected' : '' }}>Not In Sale</option>
                             </select>
                         </div>
 
                         <div class="col-lg-6 mb-4">
-                            <input class="form-control" name="price" type="number" placeholder="Price"
-                                class="@error('price') border border-danger @enderror">
+                            <input class="form-control" name="price" value={{ $product->price }} type="number"
+                                placeholder="Price" class="@error('price') border border-danger @enderror">
                             @error('price')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="col-lg-6 mb-4">
-                            <input class="form-control" name="quantity" type="number" placeholder="Quantity"
-                                class="@error('quantity') border border-danger @enderror">
+                            <input class="form-control" name="quantity" value={{ $product->quantity }} type="number"
+                                placeholder="Quantity" class="@error('quantity') border border-danger @enderror">
                             @error('quantity')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -67,7 +78,7 @@
 
                         <div class="col-lg-12">
                             <textarea name="description" class="form-control @error('description') border border-danger @enderror"
-                                placeholder="Description"></textarea>
+                                placeholder="Description">{{ $product->description }}</textarea>
                             @error('description')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -75,7 +86,7 @@
 
                         <div class="col-lg-12">
                             <br>
-                            <button type="submit" class="btn btn-success">Add Product</button>
+                            <button type="submit" class="btn btn-success">Save</button>
                         </div>
 
                     </div>

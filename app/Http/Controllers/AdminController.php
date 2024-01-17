@@ -84,6 +84,7 @@ class AdminController extends Controller
     public function updateProduct(Product $product, Request $request)
     {
         //
+        dd($request);
     }
 
     /**

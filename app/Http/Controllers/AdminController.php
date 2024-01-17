@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Services\ImageBBService;
 use Illuminate\Http\Request;
@@ -81,7 +82,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function updateProduct(Product $product, Request $request)
+    public function updateProduct(Product $product, UpdateProductRequest $request)
     {
         //
         dd($request);

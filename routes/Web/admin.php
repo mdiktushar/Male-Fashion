@@ -25,3 +25,4 @@ Route::get('admin/{product}', [AdminController::class, 'editProductView'])->name
 Route::patch('admin/{product}', [AdminController::class, 'updateProduct'])->name('updateProduct');
 Route::delete('admin/{product}', [AdminController::class, 'deleteProduct'])->name('deleteProduct');
 
+Route::get('admin-profile', [AdminController::class, 'adminProfile'])->name('adminProfilePage');

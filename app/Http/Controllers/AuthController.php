@@ -55,7 +55,6 @@ class AuthController extends Controller
         if ($user) {
             if ($user->role == 'admin') {
                 return redirect()->route('index');
-                
             } else {
                 return redirect()->route('homePage');
             }
@@ -191,12 +190,9 @@ class AuthController extends Controller
 
     public function updateProfile(Request $request)
     {
-
-        if ($request->fullname) {
-            $input = $request->validate([
-                'fullname' => 'string|min:2|max:255',
-            ]);
-        }
+        $input = $request->validate([
+            'fullname' => 'string|min:2|max:255|required',
+        ]);
 
         if ($request->email) {
             $input = $request->validate([
@@ -204,10 +200,23 @@ class AuthController extends Controller
             ]);
         }
 
-        try{
+        try {
+            if ($request->hasFile('picture')) {
+                $apiKey = env('IMAGEBB_API_KEY');
+                $imageBBService = new ImageBBService($apiKey);
+                $response = $imageBBService->uploadImage($request->picture);
+
+                $input['picture'] = $response['data']['display_url'];
+                $input['picture_delete_url'] = $response['data']['delete_url'];
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Photo is Uploaded');
+        }
+
+        try {
             auth()->user()->update($input);
-        } catch(Exception $e) {
-            return redirect()->back()->with('error', 'Nothing to Update');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Fields Can\'t be empty');
         }
         return redirect()->back()->with('success', 'Profile updated successfully!');
     }

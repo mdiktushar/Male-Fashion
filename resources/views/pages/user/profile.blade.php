@@ -27,35 +27,35 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label class="text-muted">Full Name</label>
-                                    <input name="fullname"
-                                        class="form-control @error('fullname') border border-danger @enderror"
-                                        type="text" placeholder="{{ auth()->user()->fullname }}">
+                                    <input name="fullname" class="form-control @error('fullname') border border-danger @enderror"
+                                        type="text" 
+                                        value="{{ auth()->user()->fullname }}" 
+                                        placeholder="Full Name">
                                     @error('fullname')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="text-muted">Email</label>
-                                    <input name="email"
-                                        class="form-control @error('email') border border-danger @enderror" type="text"
+                                    <input name="email" class="form-control @error('email') border border-danger @enderror"
                                         placeholder="{{ auth()->user()->email }}">
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-
-                                {{-- <div class="col-lg-12">
+        
+                                <div class="col-lg-12 mt-2">
                                     <label class="text-muted">Photo</label>
-                                    <input name="photo" type="file"
+                                    <input name="picture" type="file"
                                         class="form-control @error('picture') border border-danger @enderror"
                                         placeholder="Photo URL">
                                     @error('picture')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
-                                </div> --}}
-
+                                </div>
+                                
                                 <div class="col-lg-12">
-                                    <button class="btn-block site-btn" type="submit" class="site-btn">Update</button>
+                                    <button class="btn-block site-btn" type="submit" class="site-btn">Save</button>
                                 </div>
                             </div>
                         </form>

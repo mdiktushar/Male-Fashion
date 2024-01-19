@@ -349,13 +349,13 @@
                         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
                             aria-controls="form-elements">
                             <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Our Customers</span>
+                            <span class="menu-title">Users</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="form-elements">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic
-                                        Elements</a></li>
+                                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Admins</a></li>
+                                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Customers</a></li>
                             </ul>
                         </div>
                     </li>
@@ -369,7 +369,7 @@
                         <div class="collapse" id="charts">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">ChartJs</a></li>
+                                        href="">Orders</a></li>
                             </ul>
                         </div>
                     </li>
@@ -382,7 +382,7 @@
                         </a>
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="">
+                                <li class="nav-item"> <a class="nav-link" href={{route('adminProfilePage')}}>
                                         Profile </a></li>
                                 <li class="nav-item"> <a class="nav-link" href=""> Logout </a>
                                 </li>

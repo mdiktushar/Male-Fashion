@@ -119,4 +119,8 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'Product Not Deleted');
         }
     }
+
+    public function adminProfile() {
+        return view('pages.admin.profile');
+    }
 }

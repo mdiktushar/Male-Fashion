@@ -384,7 +384,7 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href={{route('adminProfilePage')}}>
                                         Profile </a></li>
-                                <li class="nav-item"> <a class="nav-link" href=""> Logout </a>
+                                <li class="nav-item"> <a class="nav-link" href={{ route('logout') }}> Logout </a>
                                 </li>
                             </ul>
                         </div>

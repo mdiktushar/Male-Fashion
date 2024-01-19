@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\User;
 use App\Services\ImageBBService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Stmt\TryCatch;
 
 class AdminController extends Controller
 {
@@ -122,5 +122,10 @@ class AdminController extends Controller
 
     public function adminProfile() {
         return view('pages.admin.profile');
+    }
+
+    public function allUsersView() {
+        $users = User::paginate(4);
+        return view('pages.admin.allUsers', compact('users'));
     }
 }

@@ -136,6 +136,7 @@ class AdminController extends Controller
     }
 
     public function deleteUser(User $user) {
-        dd('Delete', $user);
+        $user->delete();
+        return redirect()->back()->with('success', 'User Deleted');
     }
 }

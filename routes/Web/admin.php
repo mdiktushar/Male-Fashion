@@ -23,9 +23,9 @@ Route::get('admin/create', [AdminController::class, 'addProductView'])->name('ad
 Route::post('admin/create', [AdminController::class, 'storeProduct'])->name('addProduct');
 Route::get('admin/{product}', [AdminController::class, 'editProductView'])->name('editProductPage');
 Route::patch('admin/{product}', [AdminController::class, 'updateProduct'])->name('updateProduct');
-Route::delete('admin/{product}', [AdminController::class, 'deleteProduct'])->name('deleteProduct');
+Route::delete('admin/product/delete/{product}', [AdminController::class, 'deleteProduct'])->name('deleteProduct');
 
 Route::get('admin-profile', [AdminController::class, 'adminProfile'])->name('adminProfilePage');
 Route::get('admin/user/list', [AdminController::class, 'allUsersView'])->name('allUsersPage');
 Route::patch('admin/role/{user}', [AdminController::class, 'roleUpdate'])->name('updateRole');
-Route::delete('admin/{user}', [AdminController::class, 'deleteUser'])->name('deleteUser');
+Route::delete('admin/user/delete/{user}', [AdminController::class, 'deleteUser'])->name('deleteUser');

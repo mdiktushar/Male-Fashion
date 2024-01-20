@@ -39,20 +39,22 @@
                                             </td>
 
                                             <td class="font-weight-medium">
-                                                <div class="badge badge-danger">Null</div>
+                                                <div class="badge badge-secondary">Null</div>
                                             </td>
                                         @else
                                             <td style="font-size: small;">
-                                                <form action="{{ route('deleteProduct', $item->id) }}" method="POST"
+                                                <form action="{{ route('updateRole', $item->id) }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PATCH')
+                                                    <input type="hidden" name="role" value="{{ $item->role === 'admin' ? 'customer' : 'admin' }}">
                                                     <button
-                                                        class="badge {{ $item->roal === 'admin' ? 'badge-success' : 'badge-warning' }}">{{ $item->role }}</button>
+                                                        class="badge {{ $item->role === 'admin' ? 'badge-success' : 'badge-warning' }}">{{ $item->role }}
+                                                    </button>
                                                 </form>
                                             </td>
                                             <td style="font-size: small;">
-                                                <form action="{{ route('deleteProduct', $item->id) }}" method="POST"
+                                                <form action="{{ route('deleteUser', $item->id) }}" method="POST"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     @method('DELETE')

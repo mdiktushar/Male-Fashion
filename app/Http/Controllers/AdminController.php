@@ -130,10 +130,12 @@ class AdminController extends Controller
     }
 
     public function roleUpdate(Request $request, User $user) {
-        dd($request. $user);
+        $user->role = $request->role;
+        $user->save();
+        return redirect()->back();
     }
 
     public function deleteUser(User $user) {
-        dd($user);
+        dd('Delete', $user);
     }
 }

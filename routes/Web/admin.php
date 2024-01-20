@@ -27,3 +27,5 @@ Route::delete('admin/{product}', [AdminController::class, 'deleteProduct'])->nam
 
 Route::get('admin-profile', [AdminController::class, 'adminProfile'])->name('adminProfilePage');
 Route::get('admin/user/list', [AdminController::class, 'allUsersView'])->name('allUsersPage');
+Route::patch('admin/role/{user}', [AdminController::class, 'roleUpdate'])->name('updateRole');
+Route::delete('admin/{user}', [AdminController::class, 'deleteUser'])->name('deleteUser');

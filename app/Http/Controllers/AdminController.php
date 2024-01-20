@@ -128,4 +128,12 @@ class AdminController extends Controller
         $users = User::paginate(4);
         return view('pages.admin.allUsers', compact('users'));
     }
+
+    public function roleUpdate(Request $request, User $user) {
+        dd($request. $user);
+    }
+
+    public function deleteUser(User $user) {
+        dd($user);
+    }
 }

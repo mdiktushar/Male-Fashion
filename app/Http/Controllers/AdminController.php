@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\ImageBBService;
@@ -138,5 +139,18 @@ class AdminController extends Controller
     public function deleteUser(User $user) {
         $user->delete();
         return redirect()->back()->with('success', 'User Deleted');
+    }
+
+    public function adminOrdersView() {
+        $orders = Order::paginate(4);
+        return view('pages.admin.Orders', compact('orders'));
+    }
+
+    public function adminOrderView(Order $order) {
+        
+    }
+
+    public function adminOrderUpdate(Order $order) {
+
     }
 }

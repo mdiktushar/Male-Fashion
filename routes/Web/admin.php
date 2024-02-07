@@ -29,3 +29,7 @@ Route::get('admin-profile', [AdminController::class, 'adminProfile'])->name('adm
 Route::get('admin/user/list', [AdminController::class, 'allUsersView'])->name('allUsersPage');
 Route::patch('admin/role/{user}', [AdminController::class, 'roleUpdate'])->name('updateRole');
 Route::delete('admin/user/delete/{user}', [AdminController::class, 'deleteUser'])->name('deleteUser');
+
+Route::get('admin-orders', [AdminController::class, 'adminOrdersView'])->name('adminOrdersPage');
+Route::get('admin-order/{order}', [AdminController::class, 'adminOrderView'])->name('adminOrderPage');
+Route::patch('admin-order/update/{order}', [AdminController::class, 'adminOrderUpdate'])->name('adminOrderUpdate');

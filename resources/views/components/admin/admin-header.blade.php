@@ -368,7 +368,7 @@
                         <div class="collapse" id="charts">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link"
-                                        href="">Orders</a></li>
+                                        href={{route('adminOrdersPage')}}>Orders</a></li>
                             </ul>
                         </div>
                     </li>

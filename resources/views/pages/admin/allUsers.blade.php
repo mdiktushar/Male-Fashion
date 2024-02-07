@@ -47,7 +47,8 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <input type="hidden" name="role" value="{{ $item->role === 'admin' ? 'customer' : 'admin' }}">
+                                                    <input type="hidden" name="role"
+                                                        value="{{ $item->role === 'admin' ? 'customer' : 'admin' }}">
                                                     <button
                                                         class="badge {{ $item->role === 'admin' ? 'badge-success' : 'badge-warning' }}">{{ $item->role }}
                                                     </button>
@@ -68,6 +69,10 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            {{ $users->links('vendor.pagination.bootstrap-4') }}
+                        </div>
                     </div>
                 </div>
             </div>

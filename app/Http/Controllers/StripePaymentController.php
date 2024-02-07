@@ -61,7 +61,7 @@ class StripePaymentController extends Controller
                 'fullname' => $request->fullname,
                 'address' => $request->address,
                 'phone' => $request->phone,
-                'status' => 'Paied',
+                'status' => 'Paid',
             ]);
 
             $input = [];

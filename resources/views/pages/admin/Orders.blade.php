@@ -10,24 +10,21 @@
                         <table class="table table-striped table-borderless">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Picture</th>
-                                    <th>Name</th>
-                                    <th>Delete</th>
+                                    <th>Order ID</th>
+                                    <th>Username</th>
+                                    <th>Date</th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($users as $item) --}}
-                                <tr>
-                                    {{-- <td style="font-size: small;">{{ }}</td>
-                                    <td style="font-size: small;"><img src={{ }} alt=""></td>
-                                    <td style="font-size: small;">{{ }}</td>
-                                    <td style="font-size: x-small;">{{ }}</td>
-                                    <td style="font-size: small;">{{ }}</td>
-                                    <td style="font-size: x-small;">{{ }}</td>
-                                    <td style="font-size: x-small;">{{ }}</td> --}}
-                                </tr>
-                                {{-- @endforeach --}}
+                                @foreach ($orders as $item)
+                                    <tr>
+                                        <td style="font-size: small;">{{ $item->id }}</td>
+                                        <td style="font-size: small;">{{ $item->user->fullname }}</td>
+                                        <td style="font-size: small;">{{ $item->created_at->diffForHumans() }}</td>
+                                        <td><a class="btn btn-secondary" href={{route('adminOrderDetailsPage', $item->id)}}>Detials</a></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <br>

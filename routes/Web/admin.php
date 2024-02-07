@@ -31,5 +31,5 @@ Route::patch('admin/role/{user}', [AdminController::class, 'roleUpdate'])->name(
 Route::delete('admin/user/delete/{user}', [AdminController::class, 'deleteUser'])->name('deleteUser');
 
 Route::get('admin-orders', [AdminController::class, 'adminOrdersView'])->name('adminOrdersPage');
-Route::get('admin-order/{order}', [AdminController::class, 'adminOrderView'])->name('adminOrderPage');
+Route::get('admin-order/details/{order}', [AdminController::class, 'adminOrderDetailsView'])->name('adminOrderDetailsPage');
 Route::patch('admin-order/update/{order}', [AdminController::class, 'adminOrderUpdate'])->name('adminOrderUpdate');

@@ -121,37 +121,57 @@ class AdminController extends Controller
         }
     }
 
-    public function adminProfile() {
+    public function adminProfile()
+    {
         return view('pages.admin.profile');
     }
 
-    public function allUsersView() {
+    public function allUsersView()
+    {
         $users = User::paginate(4);
         return view('pages.admin.allUsers', compact('users'));
     }
 
-    public function roleUpdate(Request $request, User $user) {
+    public function roleUpdate(Request $request, User $user)
+    {
         $user->role = $request->role;
         $user->save();
         return redirect()->back();
     }
 
-    public function deleteUser(User $user) {
+    public function deleteUser(User $user)
+    {
         $user->delete();
         return redirect()->back()->with('success', 'User Deleted');
     }
 
-    public function adminOrdersView() {
+    public function adminOrdersView()
+    {
         $orders = Order::paginate(4);
         return view('pages.admin.Orders', compact('orders'));
     }
 
-    public function adminOrderDetailsView(Order $order) {
+    public function adminOrderDetailsView(Order $order)
+    {
         // dd($order);
+        // $order_items = $order->orderItems->paginate(4);
         return view('pages.admin.OrderDetails', compact('order'));
     }
 
-    public function adminOrderUpdate(Order $order) {
+    public function adminOrderUpdate(Order $order, Request $request)
+    {
+        // dd($request->all());
+        $currentStatus = $order->status;
 
+        $newStatus = $request->input('status');
+
+        if ($currentStatus == $newStatus) {
+            session()->flash('error', 'Nothing to change');
+        } else {
+            $order->status = $newStatus;
+            $order->save();
+            session()->flash('success', 'Status Updated to '. $order->status.'.');
+        }
+        return redirect()->back();
     }
 }

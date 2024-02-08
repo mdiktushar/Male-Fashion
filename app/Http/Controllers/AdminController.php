@@ -147,7 +147,8 @@ class AdminController extends Controller
     }
 
     public function adminOrderDetailsView(Order $order) {
-        dd($order->orderItems->all());
+        // dd($order);
+        return view('pages.admin.OrderDetails', compact('order'));
     }
 
     public function adminOrderUpdate(Order $order) {

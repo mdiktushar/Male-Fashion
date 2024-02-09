@@ -127,11 +127,11 @@
                                 <li><a href={{ route('registerPage') }}>Register</a></li>
                             @endguest
 
-                            {{-- @auth
+                            @auth
                                 @if (auth()->user()->role == 'admin')
-                                    <li><a href={{ route('addProductPage') }}>Add Products</a></li>
+                                    <li><a href={{ route('index') }}>Dashboard</a></li>
                                 @endif
-                            @endauth --}}
+                            @endauth
 
                         </ul>
                     </nav>

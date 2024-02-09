@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::resource('admin/', AdminController::class);
 Route::get('dashboard', [AdminController::class, 'index'])->name('index');
 
 Route::get('admin-product', [AdminController::class, 'adminProduct'])->name('adminProductPage');

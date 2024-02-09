@@ -19,7 +19,8 @@ class AdminController extends Controller
     public function index()
     {
         //
-        $this->authorize('viewDashboard', Auth::user());
+        $this->authorize('adminAccess', Auth::user());
+        //
         return view('pages.admin.dashboard');
     }
 
@@ -28,6 +29,8 @@ class AdminController extends Controller
      */
     public function adminProduct()
     {
+        //
+        $this->authorize('adminAccess', Auth::user());
         //
         $products = Product::paginate(4);
         // dd($products);
@@ -40,6 +43,8 @@ class AdminController extends Controller
     public function addProductView()
     {
         //
+        $this->authorize('adminAccess', Auth::user());
+        //
         return view('pages.admin.addProduct');
     }
 
@@ -48,6 +53,8 @@ class AdminController extends Controller
      */
     public function storeProduct(AddProductRequest $request)
     {
+        //
+        $this->authorize('adminAccess', Auth::user());
         //
         $data = $request->all();
         $apiKey = env('IMAGEBB_API_KEY');
@@ -62,19 +69,14 @@ class AdminController extends Controller
         return redirect()->route('adminProductPage');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function editProductView(Product $product)
     {
+        //
+        $this->authorize('adminAccess', Auth::user());
         //
         return view('pages.admin.editProduct', compact('product'));
     }
@@ -84,6 +86,8 @@ class AdminController extends Controller
      */
     public function updateProduct(Product $product, UpdateProductRequest $request)
     {
+        //
+        $this->authorize('adminAccess', Auth::user());
         //
         // Check if the request has a file for the 'picture' field
         $data = $request->all();
@@ -111,6 +115,8 @@ class AdminController extends Controller
      */
     public function deleteProduct(Product $product)
     {
+        $this->authorize('adminAccess', Auth::user());
+        //
         try {
             // Use Eloquent to delete the product
             $product->delete();
@@ -123,17 +129,23 @@ class AdminController extends Controller
 
     public function adminProfile()
     {
+        $this->authorize('adminAccess', Auth::user());
+        //
         return view('pages.admin.profile');
     }
 
     public function allUsersView()
     {
+        $this->authorize('adminAccess', Auth::user());
+        //
         $users = User::paginate(4);
         return view('pages.admin.allUsers', compact('users'));
     }
 
     public function roleUpdate(Request $request, User $user)
     {
+        $this->authorize('adminAccess', Auth::user());
+        //
         $user->role = $request->role;
         $user->save();
         return redirect()->back();
@@ -141,26 +153,32 @@ class AdminController extends Controller
 
     public function deleteUser(User $user)
     {
+        $this->authorize('adminAccess', Auth::user());
+        //
         $user->delete();
         return redirect()->back()->with('success', 'User Deleted');
     }
 
     public function adminOrdersView()
     {
+        $this->authorize('adminAccess', Auth::user());
+        //
         $orders = Order::paginate(4);
         return view('pages.admin.Orders', compact('orders'));
     }
 
     public function adminOrderDetailsView(Order $order)
     {
-        // dd($order);
-        // $order_items = $order->orderItems->paginate(4);
+        //
+        $this->authorize('adminAccess', Auth::user());
+        //
         return view('pages.admin.OrderDetails', compact('order'));
     }
 
     public function adminOrderUpdate(Order $order, Request $request)
     {
-        // dd($request->all());
+        $this->authorize('adminAccess', Auth::user());
+        //
         $currentStatus = $order->status;
 
         $newStatus = $request->input('status');

@@ -14,7 +14,11 @@ class AdminPolicy
         //
     }
 
-    public function viewDashboard (User $user) {
+    // public function viewDashboard (User $user) {
+    //     return $user->role === 'admin';
+    // }
+
+    public function adminAccess (User $user) {
         return $user->role === 'admin';
     }
 }

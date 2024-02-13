@@ -13,7 +13,7 @@ class OrderController extends Controller
         $input = $request->validate([
             'fullname' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|numeric',
         ]);
 
         // Flash input data to session

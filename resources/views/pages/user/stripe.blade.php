@@ -11,7 +11,15 @@
 <body>
     <div class="container">
         <h1 class="text-center">Send Payment</h1>
-
+        <p>
+            Note: For development puropses we have used Strype Free virsion.
+            Use the following card details to pay.
+        <ul>
+            <li>Card: 4242424242424242</li>
+            <li> CVD: Any 3 Numbers</li>
+            <li> Date: Any Future Date</li>
+        </ul>
+        </p>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default credit-card-box">
@@ -38,10 +46,10 @@
                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
                             @csrf
 
-                            <input type="hidden" name="totalPrice" value={{$totalPrice}}>
-                            <input type="hidden" name="fullname" value={{$orderData['fullname']}}>
-                            <input type="hidden" name="address" value={{$orderData['address']}}>
-                            <input type="hidden" name="phone" value={{$orderData['phone']}}>
+                            <input type="hidden" name="totalPrice" value={{ $totalPrice }}>
+                            <input type="hidden" name="fullname" value={{ $orderData['fullname'] }}>
+                            <input type="hidden" name="address" value={{ $orderData['address'] }}>
+                            <input type="hidden" name="phone" value={{ $orderData['phone'] }}>
 
                             <div class='form-row row'>
                                 <div class='col-xs-12 form-group required'>
@@ -85,7 +93,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now
-                                        (${{$totalPrice}})</button>
+                                        (${{ $totalPrice }})</button>
                                 </div>
                             </div>
 

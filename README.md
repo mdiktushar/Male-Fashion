@@ -44,7 +44,6 @@ The admins are allowed to see the user details and the order. They can also prom
 
 - Authentacation.
 - Email verification.
-- Fullscreen mode.
 - Payment gateway. 
 
 

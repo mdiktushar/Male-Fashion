@@ -41,7 +41,7 @@ Technology Stack:
     ```
 3. Install project dependencies:
     ```
-    composer install
+    composer update
     ```
 4. Create a `.env` file:
     ```
